@@ -1,0 +1,20 @@
+\documentclass[10pt]{article}
+\usepackage{pgf,tikz}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\begin{document}
+\definecolor{yqyqyq}{rgb}{0.5019607843137255,0.5019607843137255,0.5019607843137255}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+\clip(-1.6616879680028869,-1.2113763083172908) rectangle (2.3731330515596714,1.1649599976827427);
+\draw [line width=2pt] (0,0) circle (1cm);
+\draw [line width=2pt,dash pattern=on 1pt off 1pt] (0,0) circle (0.5cm);
+\draw [->,line width=2pt] (0.5,0) -- (0.5,0.4);
+\draw (0.5248714802263114,0.35634556022439795) node[anchor=north west] {$\vec{j}$};
+\draw [line width=2pt] (0.4,-0.4) circle (0.1cm);
+\draw (0.4918668093096442,-0.32025019356727824) node[anchor=north west] {$\vec{B}$};
+\draw (-0.601412914804955,0.6657643500681523) node[anchor=north west] {$\mu,\sigma$};
+\begin{scriptsize}\draw [fill=yqyqyq] (0.4,-0.4) circle (2.5pt);
+\end{scriptsize}
+\end{tikzpicture}
+\end{document}
