@@ -249,7 +249,11 @@ L'arithmétique est sans doute la moins utile des branches des mathématiques pour
 
 Les principales applications de l'arithmétique pour l'ingénieur ont trait au dénombrement et à la cryptographie ; bien que dans le dernier cas l'arithmétique n'est intéressante que parce-qu'elle produit des algorithmes que nous pensons asymétriques ; sans en être sûrs pour autant. Il faut savoir qu'aujourd'hui, toute la sécurité informatique du monde est basée sur une \emph{croyance mathématique} qui consiste à penser qu'il n'est pas possible d'aller aussi vite (sans faire usage du \emph{calcul quantique}) pour décomposer un nombre en ses facteurs premiers que pour multiplier ceux-ci ; mais aucune démonstration expertisée n'existe encore pour corrober cette conjecture.
 
-Notez que la première conséquence sociétale de la construction d'ordinateurs quantiques serait l'effondrement de la quasi-totalités des systèmes de sécurité en fonctionnement dans le monde, car l'\emph{algorithme de Shor} permet une décomposition en facteurs premiers rapide.
+Notez que la première conséquence sociétale de la construction d'ordinateurs quantiques serait d'ouvrir la voie à l'effondrement de la quasi-totalités des systèmes de sécurité en fonctionnement dans le monde, car l'\emph{algorithme de Shor} permet une décomposition en facteurs premiers rapide.
+
+La seconde serait la nécessité de la mise en place d'un protocole de transmission de données critiques - fondamentalement inviolable soit dit en passant - comme \emph{BB84} pour contrer la première.
+
+La dernière serait de permettre la simulation des systèmes quantiques avec autant d'efficacité qu'on en a aujourd'hui pour les systèmes classique, faisant peut-être entrer l'ingénierie dans une nouvelle ère. Mais ce n'est plus en rapport avec ce chapitre.
 
 L'arithmétique est l'étude de l'ensemble $\mathbb{Z}$ tel qu'on l'a vu dans le chapitre précédent \textcolor{red}{(pas fait)}, bien que la plupart des résultats concernent simplement $\mathbb{N}$ voir des sous-ensembles finis de celui-ci.
 
@@ -1896,7 +1900,7 @@ Qui, comme nous l'avons vu (la variable du produit scalaire est $k$), revient à 
 
 \subsection{Séries de Fourier}
 
-Une distribution $f$ est dite $\lambda-$périodique si :
+Une distribution $f$ est dite \emph{$\lambda-$périodique} si :
 
 \[\boxed{
 \forall x, \; \braket{\delta(x-x')|f(x')} = \braket{\delta(x + \lambda-x')|f(x')}
@@ -1905,7 +1909,7 @@ Une distribution $f$ est dite $\lambda-$périodique si :
 Nous allons montrer que sa transformée de Fourier est un \emph{peigne} (valeurs non-nulles isolées et régulièrement espacées). Pour cela, commençons par introduire le \emph{peigne de Dirac normé} :
 
 \[\boxed{
-\mathrm{III}_x = \frac{1}{\aleph_0}\sum_{i\in \mathrm{Z}}\delta(x-xi)
+\mathrm{III}_\lambda = \frac{1}{\aleph_0}\sum_{i\in \mathrm{Z}}\delta(x-\lambda i)
 }\]
 
 La division par $\aleph_0$ est nécessaire pour garantir une norme unitaire.
@@ -2878,12 +2882,12 @@ Cette section est dédiée à l'analyse de toutes les équations différentielles ord
 
 On défini formellement un système par sa représentation d'état :
 
-\[
+\[\boxed{
 \left\{\begin{matrix}
 \frac{dX}{dx}=f(X,U) \\
 Y=g(X,U)
 \end{matrix}\right.
-\]
+}\]
 
 Où $U$, $X$ et $Y$ sont respectivement les vecteurs \emph{de commande} (qu'on peut perçevoir comme les entrées du système), \emph{d'état} et \emph{de sorties}. L'absence de flêche malgrès la qualification de vecteur est une convention de l'automatique, les composantes de ces vecteurs n'étant pas nécessairement de mêmes dimensions, ces vecteurs n'admettent pas d'interprétation physique. 
 
@@ -2938,12 +2942,12 @@ X_2
 
 La représentation d'état d'une équation différentielle linéaire est de la forme :
 
-\[
+\[\boxed{
 \left\{\begin{matrix}
 \frac{dX}{dx}=AX+BU \\
 Y=CX+DU
 \end{matrix}\right.
-\]
+}\]
 
 L'intéret est que quelque soit l'ordre de l'équation différentielle de départ, on pourra la ramener à une équation différentielle matricielle d'ordre $1$. Le calcul de ses solutions est alors rendu possible par l'usage de l'\emph{exponentiation de matrice} définie au sens des séries entières \textcolor{red}{(pas fait)} :
 
@@ -2957,13 +2961,13 @@ Pour l'étude locale (au voisinage d'une point) d'une équation différentielle non
 
 Tout comme la droite tangente à une courbe est paramétrée par la dérivée de cette courbe, ici on s'intéressera naturellement au gradient de $f$ (aussi désignée sous l'appellation de \emph{matrice Jacobienne}.
 
-\[
+\[\boxed{
 \underline{\underline{\nabla}} f =
 \left(\begin{matrix}
 \frac{\partial f_1}{\partial X_1} & \frac{\partial f_1}{\partial X_2} \\
 \frac{\partial f_2}{\partial X_1} & \frac{\partial f_2}{\partial X_2}
 \end{matrix}\right)
-\]
+}\]
 
 Pour notre exemple :
 
@@ -2979,9 +2983,9 @@ Pour notre exemple :
 
 On appelle \emph{points d'équilibres} les vecteurs $X$ stationnaires, qui n'évoluent pas avec $x$ au premier ordre, c'est-à-dire qui satisfont :
 
-\[
+\[\boxed{
 \frac{dX}{dx}=\vec{0}
-\]
+}\]
 
 Pour notre exemple, on trouve les points $\left(\begin{matrix}0 \\ 0\end{matrix}\right)$ et $\left(\begin{matrix}0 \\ 3\end{matrix}\right)$.
 
@@ -3073,9 +3077,9 @@ Et :
 
 Ces deux points d'équilibres admettent donc chacun deux sous-espaces propres, qui sont générés par des vecteurs propres \textcolor{red}{(pas parlé avant, justifier l'existence du noyau)} que nous allons maintenant calculer :
 
-\[
+\[\boxed{
 \vec{e}_{\lambda} \in \ker\left(\underline{\underline{\nabla}}f-\lambda\underline{\underline{I}}\right)
-\]
+}\]
 
 \[
 \vec{e}_{\lambda} \in \ker\left(\begin{matrix}
@@ -3143,6 +3147,8 @@ Et pour le second :
 
 Les équations différentielles qui viennent d'être présentés sont dites \emph{ordinaires} car leurs solutions sont fonctions d'une seule variable de $\mathbb{R}$. Or, le monde classique étant contenu dans un espace-temps quadri-dimensionnel, les formulations locales des théories physiques s'expriment dans $\mathbb{R}^4$ ce qui nous amène à introduire un nouveau type d'équations différentielles dont les solutions seront des fonctions de plusieurs variables.
 
+\textcolor{red}{(évoquer analyse vectorielle)}
+
 \subsection{Opérateurs différentiels}
 
 Les seuls opérateurs des équations différentielles ordinaires sont les dérivations simple ou multiples : $\frac{d}{dx}$, $\frac{d^2}{dx^2}$, $\frac{d^n}{dx^n}$...
@@ -3159,13 +3165,13 @@ Nous allons nous placer pour cette discussion dans un cadre non-relativiste, où 
 
 Le premier opérateur différentiel vraiment nouveau est donc le \emph{gradient} :
 
-\[
+\[\boxed{
 \nabla f = \left(\begin{matrix}
 \frac{\partial f}{\partial x} \\
 \frac{\partial f}{\partial y} \\
 \frac{\partial f}{\partial z}
 \end{matrix}\right)
-\]
+}\]
 
 Notez qu'ici $f$ est une grandeur scalaire (on dira même un \emph{champ} scalaire puisque c'est une fonction de l'espace et du temps), mais le gradient peut-être généralisé à des espaces tensoriels plus grandes, par exemple le gradient d'un vecteur est une matrice :
 
@@ -3173,42 +3179,42 @@ Notez qu'ici $f$ est une grandeur scalaire (on dira même un \emph{champ} scalair
 \nabla \vec{f} = \nabla^\top f_x \vec{e_x}+ \nabla^\top f_y \vec{e_y} + \nabla^\top f_z \vec{e_z}
 \]
 
-\[
+\[\boxed{
 \nabla \vec{f} =
 \left(\begin{matrix}
 \frac{\partial f_x}{\partial x} & \frac{\partial f_x}{\partial y} & \frac{\partial f_x}{\partial z} \\
 \frac{\partial f_y}{\partial x} & \frac{\partial f_y}{\partial y} & \frac{\partial f_y}{\partial z}\\
 \frac{\partial f_z}{\partial x} & \frac{\partial f_z}{\partial y} & \frac{\partial f_z}{\partial z}
 \end{matrix}\right)
-\]
+}\]
 
 Cette matrice contient toute l'information sur les variations locales du \emph{champ vectoriel} $\vec{f}(x,y,z)$. Néanmoins, nous verrons qu'en physique il est souvent pertinent d'extraire de cette matrice deux informations particulières, la première étant la \emph{divergence} :
 
-\[
+\[\boxed{
 \nabla \cdot \vec{f} = \mathrm{Tr}(\nabla \vec{f}) = \frac{\partial f_x}{\partial x} + \frac{\partial f_y}{\partial y} + \frac{\partial f_z}{\partial z}
-\]
+}\]
 
 Et la seconde le \emph{rotationnel} \textcolor{red}{(trouver le lien avec la matrice jacobienne)} :
 
-\[
+\[\boxed{
 \nabla \times \vec{f} = \left(\begin{matrix}
 \frac{\partial f_z}{\partial y} - \frac{\partial f_y}{\partial z} \\
 \frac{\partial f_x}{\partial z} - \frac{\partial f_z}{\partial x} \\
 \frac{\partial f_y}{\partial x} - \frac{\partial f_y}{\partial x}
 \end{matrix}\right)
-\]
+}\]
 
 Qui sont tous deux des opérateurs différentiels à l'interprétation complexe \textcolor{red}{(trouver un moyen de les illustrer)}.
 
 C'est tout pour les opérateurs d'ordre $1$, mais on peut aussi faire mention des \emph{laplaciens} qui sont des opérateurs d'ordre $2$ :
 
-\[
+\[\boxed{
 \Delta f = \nabla \cdot \nabla f
-\]
+}\]
 
-\[
+\[\boxed{
 \Delta \vec{f} = \nabla (\nabla \cdot \vec{f}) - \nabla \times \nabla \times \vec{f}
-\]
+}\]
 
 Il existe en fait deux laplaciens, le premier s'appliquant sur un champ scalaire et le second sur un champ vectoriel.
 
@@ -3218,9 +3224,9 @@ Le théorème de Green-Riemann est la pierre angulaire de toutes les tentatives de
 
 Soit un \emph{domaine} $\Omega$ muni d'un contour $\partial \Omega$ ; le concept de domaine étant la généralisation dans un espace vectoriel de la notion d'intervalle. Alors on a pour une fonction $f$ :
 
-\[
+\[\boxed{
 \int_\Omega \frac{\partial f}{\partial x_i} \; d\Omega = \oint_{\partial \Omega} f (\vec{n} \cdot \vec{e_i}) \;  d(\partial \Omega)
-\]
+}\]
 
 Avec $\vec{n}$ la normale sortante à $\partial \Omega$ au point qu'on considère. Le rond dans l'intégrale de droite n'est rien de plus qu'un ornement exprimant le caractère \emph{fermé} du contour $\partial\Omega$.
 
@@ -3252,9 +3258,9 @@ On peut commencer par donner un premier résultat sur la divergence :
 \int_\Omega \nabla \cdot \vec{f} \; d\Omega = \oint_{\partial \Omega} \sum_i f_i \vec{e_i} \cdot \vec{n} \;  d(\partial \Omega)
 \]
 
-\[
+\[\boxed{
 \int_\Omega \nabla \cdot \vec{f} \; d\Omega = \oint_{\partial \Omega} \vec{f} \cdot \vec{n} \;  d(\partial \Omega)
-\]
+}\]
 
 Théorème qui sera - tout comme le suivant - abondamment utilisé pour la résolution des problêmes d'électromagnétisme.
 
@@ -3282,9 +3288,9 @@ Dans l'espace, on a également un théorème sur le rotationnel :
 = \oint_{\partial \Omega} \sum_{i \in \frac{\mathbb{Z}}{3\mathbb{Z}}} \left( f_{i+2} (\vec{n} \cdot \vec{e_{i+1}}) \;  - f_{i+1} (\vec{n} \cdot \vec{e_{i+2}}) \right) \vec{e_i} \;  d(\partial \Omega) 
 \]
 
-\[
+\[\boxed{
 \int_\Omega \nabla \times \vec{f} \; d\Omega = \oint_{\partial \Omega} \vec{f} \times \vec{n} \;  d(\partial \Omega)
-\]
+}\]
 
 Si maintenant l'on se place sur un domaine $\Omega$ surfacique :
 
@@ -3299,6 +3305,8 @@ Celles-ci parsemant toute la physique, le développement de méthodes de résolutio
 La \emph{formulation variationnelle} d'une équation aux dérivées partielles est :
 
 \textcolor{red}{(compléter)}
+
+\textcolor{red}{(espaces de Sobolev)}
 
 \chapter{Probabilités \& Statistiques}
 
@@ -3324,34 +3332,34 @@ Par exemple, le jet de $n$ dés peut-être représenté par une suite de valeurs dan
 
 Tout l'enjeu de la théorie des probabilités est d'attribuer à chaque évènement $A$ une probabilité $\mathbb{P}(A) \in [0;1]$, définie mathématiquement par :
 
-\[
+\[\boxed{
 \left\{\begin{matrix}
 \mathbb{P}(\Omega) = 1 \\
 \mathbb{P}(\emptyset) = 0 \\
 \forall A, \; \mathbb{P}(A) = 1 - \mathbb{P}(\Omega \setminus A) \\
 \forall (A,B), \; \mathbb{P}(A\cup B) = \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(A\cap B)
 \end{matrix}\right.
-\]
+}\]
 
 On fera intervenir la probabilité conditionnelle de \emph{$A$ sachant $B$} définie par :
 
-\[
+\[\boxed{
 \mathbb{P}(A|B) = \frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}
-\]
+}\]
 
 Qui nous permet d'écrire facilement la \emph{formule de Bayes}, laquelle nous rappellera l'écriture de la décomposition d'un vecteur dans une base. En effet, Pour une partition $\phi = (\phi_1, \phi_2,...)$ de l'univers $\Omega$, on a :
 
-\[
+\[\boxed{
 \mathbb{P}(A) = \sum_i \mathbb{P}(A|\phi_i)\mathbb{P}(\phi_i)
-\]
+}\]
 
-On retiendra donc que $\mathbb{P}(A|B)$ est d'une certaine façon le produit scalaire de $\mathbb{P}(A)$ par $\mathbb{P}(B)$ (d'où la notation proche de celle du Bra-Ket).
+On retiendra donc que $\mathbb{P}(A|B)$ est d'une certaine façon le produit scalaire de $\mathbb{P}(A)$ par $\mathbb{P}(B)$ (d'où la notation proche de celle du Bra-Ket) \textcolor{red}{(sous une métrique particulières alors car ce produit n'est pas commutatif)}.
 
 Enfin on dira que deux évènements sont indépendants ssi :
 
-\[
+\[\boxed{
 \mathbb{P}(A|B)=\mathbb{P}(A)
-\]
+}\]
 
 Auquel cas $\mathbb{P}(A\cap B) = \mathbb{P}(A)\mathbb{P}(B)$.
 
@@ -3382,7 +3390,7 @@ Alors que \emph{$\{2;4;6\}$ pour le premier jet} et \emph{trouver $6$ pour résul
 \mathbb{P}(x=6|\{2;4;6\})=\mathbb{P}(x=6|\{2\}) + \mathbb{P}(x=6|\{4\}) + \mathbb{P}(x=6|\{6\})
 \]
 
-Mais la dernière probabilité est nulle ! Si j'obtiens un six au premier jet, je ferai forcément plus que six au total :
+Mais la dernière probabilité est nulle ! Si j'obtiens un six au premier jet, je ferai forcément plus de six au total :
 
 \[
 \mathbb{P}(x=6|\{2;4;6\})=\frac{1}{3}
@@ -3394,15 +3402,15 @@ Qui n'est pas égal à $\mathbb{P}(x=6)$, comme nous le verrons également \textcol
 
 Une loi de probabilité $\mathbb{P}(X)$ satisfait la propriété suivante :
 
-\[
+\[\boxed{
 \sum_{x\in X(\Omega)} \mathbb{P}(x) = 1
-\]
+}\]
 
 Si $X(\Omega)$ est un ensemble ordonné (typiquement $\mathbb{N}$ ou $\mathbb{R}$), on définira sa fonction de répartition :
 
-\[
+\[\boxed{
 \mathcal{F}_k : x \rightarrow \sum_{x=-\infty}^k \mathbb{P}(x) 
-\]
+}\]
 
 De sorte que :
 
@@ -3414,17 +3422,17 @@ De sorte que :
 
 La loi de probabilité la plus élémentaire - mais pas la plus simple - est la loi binomiale au coeur des probabilités discrètes :
 
-\[
+\[\boxed{
 \mathbb{P}_{\mathcal{B}(n,p)} : k \rightarrow C_n^k (1-p)^{n-k} p^k
-\]
+}\]
 
 Pour montrer qu'elle satisfait la propriété sus-citée, on peut remarquer que sa fonction de répartition jusque $n$ est un binôme de Newton :
 
 \[
-\mathcal{F}_n =\sum_{k=0}^n (1-p)^{n-k} p^k = (1-p+p)^n = 1
+\mathcal{F}_n =\sum_{k=0}^n C_n^k (1-p)^{n-k} p^k = (1-p+p)^n = 1
 \]
 
-Elle est donne la probabilité pour que $k$ piles soient tirés pour $n$ jets de pièce si la pièce est déséquilibrée et que la probabilité d'obtention de pile soit $p$. Si la pièce est équilibrée, on a $p=\frac{1}{2}$ et :
+Elle est donne la probabilité pour que $k$ piles soient tirés pour $n$ jets de pièce si la pièce est déséquilibrée et que la probabilité d'obtention de pile vaut $p$. Si la pièce est équilibrée, on a $p=\frac{1}{2}$ et :
 
 \[
 \mathbb{P}_{\mathcal{B}(n,\frac{1}{2})}(k) = C_n^k 2^{-n}
@@ -3438,9 +3446,9 @@ Maintenant, combien y-a-t'il de façons d'obtenir $k$ piles ? On se convaincra qu
 
 Dans la continuité de la loi binomiale, la loi géométrique détermine la probabilité d'obtention du premier pile au $k$-ième lancé :
 
-\[
+\[\boxed{
 \mathbb{P}_{\mathcal{G}(p)} : k \rightarrow (1-p)^{k-1} p
-\]
+}\]
 
 Cette loi se comprend en remarquant que $\mathbb{P}_{\mathcal{G}(p)}(k)$ doit être le produit de la probabilité $p$ de tirer pile après que $k-1$ faces aient été tirés.
 
@@ -3450,11 +3458,11 @@ Cette loi se comprend en remarquant que $\mathbb{P}_{\mathcal{G}(p)}(k)$ doit êt
 
 \subsubsection{Loi de Poisson}
 
-Les trois lois qui précèdent sont les fondements des probabilités. Toutes les autres sont des approximations de celles-ci sous certaines hypothèse. Par exemple, la \emph{loi de Poisson} est ce en quoi se réduit la loi binomiale pour $p$ petit (évènement rare). On réduira les deux degrés de liberté de la loi à un seul $\lambda=np$.
+Les trois lois qui précèdent constituent les fondements des probabilités. Toutes les autres sont des approximations de celles-ci sous certaines hypothèse. Par exemple, la \emph{loi de Poisson} est ce en quoi se réduit la loi binomiale pour $p$ petit (évènement rare). On réduira les deux degrés de liberté de la loi à un seul $\lambda=np$.
 
-\[
+\[\boxed{
 \mathbb{P}_{\mathcal{P}(\lambda)} : k \rightarrow \frac{\lambda ^k}{k!}e^{-\lambda}
-\]
+}\]
 
 \textcolor{red}{(démonstration)}
 
@@ -3462,9 +3470,9 @@ Les trois lois qui précèdent sont les fondements des probabilités. Toutes les au
 
 Cette nouvelle loi est définie sur $\mathbb{R}$, et donc en termes de densité de probabilité. Elle est ce vers quoi tend la loi géométrique pour $n$ grand \textcolor{red}{(démonstration)} :
 
-\[
+\[\boxed{
 \mathbb{P}_{\mathcal{E}(\lambda)} : x \rightarrow \lambda e^{-\lambda x}
-\]
+}\]
 
 C'est à dire qu'on ne pourra plus attribuer une probabilité à un résultat $x$, mais à l'évènement correspondant à un intervalle $[a;b]$ de $\mathbb{R}$ :
 
@@ -3490,15 +3498,15 @@ En l'occurence, la fonction de répartition est facile à calculer :
 
 Le \emph{moment d'ordre $n$} d'une loi de probabilité est donné par :
 
-\[
+\[\boxed{
 \mathbb{E}(X^n) = \sum_{k\in\Omega} k^n \mathbb{P}(X=k)
-\]
+}\]
 
 Le moment d'ordre $0$ est donc égal à $1$. Le moment d'ordre $1$ est l'\emph{espérance} :
 
-\[
+\[\boxed{
 \mathbb{E}(X) = \sum_{k\in\Omega} k \mathbb{P}(X=k)
-\]
+}\]
 
 Elle vaut pour les lois précédentes :
 
@@ -3518,16 +3526,16 @@ Le moment d'ordre $2$ est le sujet le plus intéressant de ce chapitre. Il est un
 
 Le moment d'ordre $2$ a un vrai sens physique émergent de l'intervention des probabilités en mécanique quantique. :
 
-\[
+\[\boxed{
 \mathbb{E}(X^2) = \sum_{k\in\Omega} k^2 \mathbb{P}(X=k)
-\]
+}\]
 
 Le théorème de Huygens nous dit que lui-même soustrait de l'espérance au carré satisfait la définition de la \emph{variance} :
 
 
-\[
+\[\boxed{
 var(X) = \mathbb{E}\left(\left(X-\mathbb{E}(X)\right)^2\right)
-\]
+}\]
 
 En effet :
 
@@ -3541,9 +3549,9 @@ Par linéarité de l'espérance (qui pour rappel est une constante) :
 var(X) = \mathbb{E}(X^2)-2\mathbb{E}(X)\mathbb{E}(X)+\mathbb{E}^2(X)
 \]
 
-\[
+\[\boxed{
 var(X) = \mathbb{E}(X^2)-\mathbb{E}^2(X)
-\]
+}\]
 
 Sa racine est \emph{l'écart-type}. Il permet de quantifier la \emph{dispersion} d'une loi de probabilité autour de sa valeur moyenne, et ce dans l'unité physique de celle-ci.
 
@@ -3574,35 +3582,35 @@ Les équations de Maxwell permettent le calcul des champs électromagnétiques en p
 
 Soit le \emph{quadrivecteur courant} défini dans tout l'espace, et décrivant la répartition et les mouvements des charges électriques :
 
-\[
+\[\boxed{
 j^\mu(x^\nu) = \left( \begin{matrix} \rho(x,y,z,t)c \\ j_x(x,y,z,t) \\ j_y(x,y,z,t) \\ j_z(x,y,z,t) \end{matrix} \right)
-\]
+}\]
 
-S'interroger sur la raison pour laquelle la composante temporelle doit être distinguée des composantes spatiales revient à se demander pourquoi le temps est de nature différente de l'espace (ceci au moins parceque le principe de causalité s'applique seulement au premier) ; ce qui reste l'un des plus grands mystères de la nature.
+S'interroger sur la raison pour laquelle la composante temporelle doit être distinguée des composantes spatiales revient à se demander pourquoi le temps est de nature différente de l'espace (ceci ne serait-ce parceque le principe de causalité s'applique seulement au premier) ; ce qui est une question profonde qu'affectionnent particulièrement les physiciens.
 
 L'électromagnétisme stipule que ce quadrivecteur est la source du \emph{quadrivecteur potentiel} :
 
-\[
+\[\boxed{
 A^\mu(x^\nu) = \left( \begin{matrix} \phi(x,y,z,t)/c \\ A_x(x,y,z,t) \\ A_y(x,y,z,t) \\ A_z(x,y,z,t) \end{matrix} \right)
-\]
+}\]
 
-Dans toute la suite, on se placera dans le système d'unité où $c = 1$, qui est certainement le système d'unité naturel à considérer une fois qu'on a conscience des implications de la relativité.
+Dans la suite, on se placera dans le système d'unité où la vitesse de la lumière $c = 1$, qui est certainement le système d'unité naturel à considérer une fois qu'on a conscience des implications de la relativité.
 
 L'\emph{électrodynamique quantique} se concrétise dans le monde classique au travers des équations de Maxwell covariantes :
 
-\[
+\[\boxed{
 \left\{\begin{matrix}
 \partial_{\mu}F_{\nu\lambda}
  +  \partial_{\nu}F_{\lambda\mu}  +  \partial_{\lambda}F_{\mu\nu}  =  0 \\
 \partial_{\mu}F^{\mu\nu}  =  -  \mu_{0}  j^{\nu}
 \end{matrix}\right.
-\]
+}\]
 
 Où $F^{\mu\nu}$ est le tenseur de Maxwell :
 
-\[
+\[\boxed{
 F_{\mu\nu}  =  \partial_{\mu} A_{\nu} - \partial_{\nu} A_{\mu}
-\]
+}\]
 
 Qu'on peut tenter de préciser par :
 
@@ -3641,9 +3649,9 @@ L'équation de Maxwell \emph{avec sources} implique la divergence nulle du quadri
 
 Cette expression est une équation de conservation :
 
-\[
+\[\boxed{
 \frac{\partial \rho}{\partial t} + \nabla \cdot \vec{j} = 0
-\]
+}\]
 
 Qui rappelle les équations de conservation de masse ou de quantité de matière qu'on trouve en mécanique des milieux continus. Pourtant, dans ce cas-ci l'équation de conservation est déduite des équations de Maxwell ; alors que d'habitude elle est plutôt un postulat émanante de l'absence de source dans un problême.
 
@@ -3669,7 +3677,13 @@ F'_{\mu\nu}  =  \partial_{\mu} A_{\nu} + \partial_{\mu} \partial_{\nu} f - \part
 F'_{\mu\nu}  =  \partial_{\mu} A_{\nu} - \partial_{\nu} A_{\mu} = F_{\mu\nu}
 \]
 
-Dans ces conditions, on choisira communément la \emph{jauge de Lorenz} où la divergence du quadripotentiel $\partial_{\mu} A^{\mu} = \frac{\partial\phi}{\partial t}  + \nabla \cdot \vec{A}$ est nulle, ce qui permet d'écrire une forme simple (dite \emph{de Poisson}) de l'équation de Maxwell \emph{avec sources} :
+Dans ces conditions, on choisira communément la \emph{jauge de Lorenz} où la divergence du quadripotentiel $\partial_{\mu} A^{\mu}$ est nulle :
+
+\[\boxed{
+\frac{\partial\phi}{\partial t}  + \nabla \cdot \vec{A} = 0
+}\]
+
+Ce qui permet d'écrire une forme simple (dite \emph{de Poisson}) de l'équation de Maxwell \emph{avec sources} :
 
 \[ 
 \partial_{\mu}F^{\mu\nu}  =  -  \mu_{0}  j^{\nu}
@@ -3680,10 +3694,10 @@ Dans ces conditions, on choisira communément la \emph{jauge de Lorenz} où la div
 = -  \mu_{0}  j^{\nu}
 \]
 
-\[ 
+\[\boxed{
 \partial_{\mu} \partial^{\mu} A^{\nu}
 = -  \mu_{0}  j^{\nu}
-\]
+}\]
 
 \subsection{Interaction électromécanique}
 
@@ -3693,11 +3707,11 @@ L'évolution du système est décrit par le couplage des deux quadrivecteurs précéd
 w = j^\mu A_{\mu}
 \]
 
-Ou en explicitant la différence intrinsèque qui doit être faite entre le temps et l'espace :
+Ou en explicitant la différence qu'on peut faire entre le temps et l'espace :
 
-\[
+\[\boxed{
 w = \rho \phi + \vec{j} \cdot \vec{A}
-\]
+}\]
 
 On peut alors invoquer une relation vue en mécanique \textcolor{red}{(pas fait)} pour arriver finalement à l'expression de la quadriforce :
 
@@ -3733,13 +3747,25 @@ f^\mu = \left( \begin{matrix} \left( \frac{\partial \vec{A}}{\partial t} - \nabl
 
 On a ainsi un couplage entre les équations de champs et les équations de mouvements des sources, même si sa formulation est tout à fait inintelligible en l'état.
 
-On peut montrer \textcolor{red}{(à faire)} que poser les \emph{champ électrique} $\vec{E} = \frac{\partial \vec{A}}{\partial t} - \nabla\phi$ et \emph{champ magnétique} $\vec{B} = \nabla \times \vec{A}$ revient à écrire la quadriforce comme :
+On peut montrer \textcolor{red}{(à faire)} que poser les \emph{champ électrique} :
 
-\[
+\[\boxed{
+\vec{E} = - \frac{\partial \vec{A}}{\partial t} - \nabla\phi
+}\]
+
+Et \emph{champ magnétique} :
+
+\[\boxed{
+\vec{B} = \nabla \times \vec{A}
+}\]
+
+Revient à écrire la quadriforce comme :
+
+\[\boxed{
 \left( \begin{matrix}  p 
-\\ \vec{f} \end{matrix} \right) = \left( \begin{matrix} \vec{j} \cdot \vec{E}
+\\ \vec{f} \end{matrix} \right) = \left( \begin{matrix} - \vec{j} \cdot \vec{E}
 \\ \rho \vec{E} + \vec{j} \times \vec{B} \end{matrix} \right)
-\]
+}\]
 
 Une conséquence intéressante est qu'une charge évoluant dans un champ purement magnétique ne travaille pas.
  
@@ -3774,10 +3800,10 @@ Cette double dérivée sommée sur les composantes spatiales se rapproche d'un lapl
 
 \[
 \partial_{\mu} \partial^{\nu}
-= \frac{\partial^2}{\partial t^2} + \Delta
+= -\frac{\partial^2}{\partial t^2} + \Delta
 \]
 
-Pour lever toute ambiguitée sur son sens, on reécrira :
+Le signe moins provenant de la métrique de Lorentz \textcolor{red}{(pas parlé avant)}. Pour lever toute ambiguitée sur son sens, on reécrira :
 
 \[ 
 \partial_{\mu} \partial^{\mu} \left( \begin{matrix}  \phi \\ A_x \\ A_y \\ A_z \end{matrix} \right)
@@ -3788,28 +3814,28 @@ Sous la forme :
 
 \[ 
 \left( \begin{matrix} 
-\frac{\partial^2 \phi}{\partial t^2} + \Delta \phi \\ 
-\frac{\partial^2 A_x}{\partial t^2} + \Delta A_x \\ 
-\frac{\partial^2 A_y}{\partial t^2} + \Delta A_y \\ 
-\frac{\partial^2 A_z}{\partial t^2} + \Delta A_z \end{matrix} \right)
+-\frac{\partial^2 \phi}{\partial t^2} + \Delta \phi \\ 
+-\frac{\partial^2 A_x}{\partial t^2} + \Delta A_x \\ 
+-\frac{\partial^2 A_y}{\partial t^2} + \Delta A_y \\ 
+-\frac{\partial^2 A_z}{\partial t^2} + \Delta A_z \end{matrix} \right)
 = - \mu_{0}  \left( \begin{matrix} \rho \\j_x \\ j_y \\ j_z \end{matrix} \right)
 \]
 
 Ou plus intelligible, en introduisant le laplacien vectoriel :
 
-\[ 
-\left( \begin{matrix}  \frac{\partial^2\phi}{\partial t^2} + \Delta \phi \\ 
-\frac{\partial^2 \vec{A}}{\partial t^2} + \Delta \vec{A} \end{matrix} \right)
+\[\boxed{
+\left( \begin{matrix}  -\frac{\partial^2\phi}{\partial t^2} + \Delta \phi \\ 
+-\frac{\partial^2 \vec{A}}{\partial t^2} + \Delta \vec{A} \end{matrix} \right)
 = - \mu_{0}  \left( \begin{matrix} \rho \\ \vec{j} \end{matrix} \right)
-\]
+}\]
 
 Il est donc question de deux champs de potentiels, le premier scalaire et le second vectoriel, dont les sources respectives sont la densité de charge et leurs courants de déplacement.
 
 On peut expliciter les laplaciens :
 
 \[ 
-\left( \begin{matrix}  \frac{\partial^2\phi}{\partial t^2} + \nabla \cdot \nabla \phi \\ 
-\frac{\partial^2\vec{A}}{\partial t^2} +\nabla ( \nabla  \cdot \vec{A} ) - \nabla \times \nabla  \times \vec{A} \end{matrix} \right)
+\left( \begin{matrix}  -\frac{\partial^2\phi}{\partial t^2} + \nabla \cdot \nabla \phi \\ 
+-\frac{\partial^2\vec{A}}{\partial t^2} +\nabla ( \nabla  \cdot \vec{A} ) - \nabla \times \nabla  \times \vec{A} \end{matrix} \right)
 = - \mu_{0}  \left( \begin{matrix} \rho \\ \vec{j} \end{matrix} \right)
 \]
 
@@ -3817,26 +3843,26 @@ En faisant intervenir la jauge de Lorenz $\frac{\partial\phi}{\partial t}  + \na
 
 \[
 \left( \begin{matrix}
-- \frac{\partial}{\partial t}\left(\nabla \cdot \vec{A}\right) + \nabla \cdot \nabla \phi \\ 
-\frac{\partial^2\vec{A}}{\partial t^2} - \nabla \left( \frac{\partial\phi}{\partial t} \right) - \nabla \times \nabla  \times \vec{A} \end{matrix} \right)
+\frac{\partial}{\partial t}\left(\nabla \cdot \vec{A}\right) + \nabla \cdot \nabla \phi \\ 
+- \frac{\partial^2\vec{A}}{\partial t^2} - \nabla \left( \frac{\partial\phi}{\partial t} \right) - \nabla \times \nabla  \times \vec{A} \end{matrix} \right)
 = - \mu_{0}  \left( \begin{matrix} \rho \\ \vec{j} \end{matrix} \right)
 \]
 
-En utilisant les définitions de $\vec{E} = \frac{\partial\vec{A}}{\partial t} - \nabla\phi$ et $\vec{B} = \nabla \times \vec{A}$ :
+En utilisant les définitions de $\vec{E} = - \frac{\partial\vec{A}}{\partial t} - \nabla\phi$ et $\vec{B} = \nabla \times \vec{A}$ :
 
 \[ 
 \left( \begin{matrix}  
-- \frac{\partial}{\partial t}\left(\nabla \cdot \vec{A}\right) + \nabla \cdot \left(\frac{\partial\vec{A}}{\partial t}-\vec{E}\right) \\ 
+\frac{\partial}{\partial t}\left(\nabla \cdot \vec{A}\right) + \nabla \cdot \left(-\frac{\partial\vec{A}}{\partial t}-\vec{E}\right) \\ 
 \frac{\partial\vec{E}}{\partial t} - \nabla \times \vec{B} \end{matrix} \right)
 = - \mu_{0}  \left( \begin{matrix} \rho \\ \vec{j} \end{matrix} \right)
 \]
 
 Ou encore, qui met en évidence les deux champs préalablement introduits :
 
-\[ 
+\[\boxed{
 \left( \begin{matrix}  \nabla \cdot \vec{E} \\ \nabla \times \vec{B} \end{matrix} \right)
 = \left( \begin{matrix} \mu_{0} \rho \\ \mu_{0}\vec{j} + \frac{\partial\vec{E}}{\partial t} \end{matrix} \right)
-\]
+}\]
 
 Cette dernière forme est la forme usuelle des équations de Maxwell \emph{avec sources} en régime quasi-statique.
 
@@ -3856,21 +3882,21 @@ Ou sous sa forme matricielle :
 
 \[
 F_{\mu\nu}  =  \left( \begin{matrix}  
-0 & \partial_{t} A_{x}-\partial_{x}\phi & \partial_{t} A_{y}-\partial_{y}\phi & \partial_{t} A_{z}-\partial_{z}\phi \\
-\partial_{x}\phi-\partial_{t} A_{x} & 0 & \partial_{x} A_{y} - \partial_{y} A_{x} & \partial_{x} A_{z} - \partial_{z} A_{x} \\
-\partial_{y}\phi-\partial_{t} A_{y} & \partial_{y} A_{x} - \partial_{x} A_{y} & 0 & \partial_{y} A_{z} - \partial_{z} A_{y}\\
-\partial_{z}\phi-\partial_{t} A_{z} & \partial_{z} A_{x} - \partial_{x} A_{z}  & \partial_{z} A_{y} - \partial_{y} A_{z} & 0\end{matrix} \right)
+0 & -\partial_{t} A_{x}-\partial_{x}\phi & -\partial_{t} A_{y}-\partial_{y}\phi & -\partial_{t} A_{z}-\partial_{z}\phi \\
+\partial_{x}\phi+\partial_{t} A_{x} & 0 & \partial_{x} A_{y} - \partial_{y} A_{x} & \partial_{x} A_{z} - \partial_{z} A_{x} \\
+\partial_{y}\phi+\partial_{t} A_{y} & \partial_{y} A_{x} - \partial_{x} A_{y} & 0 & \partial_{y} A_{z} - \partial_{z} A_{y}\\
+\partial_{z}\phi+\partial_{t} A_{z} & \partial_{z} A_{x} - \partial_{x} A_{z}  & \partial_{z} A_{y} - \partial_{y} A_{z} & 0\end{matrix} \right)
 \]
 
 Je vous laisse vérifier qu'il peut-être réecrit sous une forme plus intelligible :
 
-\[
+\[\boxed{
 F_{\mu\nu}  =  \left( \begin{matrix}  
 0 & E_x & E_y & E_z \\
 - E_x & 0 & B_z & - B_y \\
 - E_y & - B_z & 0 & B_x \\
 - E_z & B_y & - B_x & 0\end{matrix} \right)
-\]
+}\]
 
 C'est alors qu'il devient intéressant de voir la forme que prend l'équation de Maxwell \emph{sans source} :
 
@@ -3913,9 +3939,9 @@ L'antisymétrie nous donne alors trois équations :
 
 Ou sous une forme plus compacte :
 
-\[
+\[\boxed{
 \nabla \times \vec{E} = - \frac{\partial\vec{B}}{\partial t}
-\]
+}\]
 
 \item Cas où tous les indices sont spatiaux :
 On fini par le cas les plus délicat. On peut déjà s'épargner l'étude des sous-cas où certains indices sont similaires, pour les mêmes raisons liées à l'antisymétricité que précédement.
@@ -3950,31 +3976,31 @@ Mais par antisymétrie on voit tout de suite que ces deux équations sont redondan
 
 Ou sous sa forme compacte :
 
-\[
+\[\boxed{
 \nabla \cdot \vec{B} = 0
-\]
+}\]
 
 \end{itemize}
 
 Pour résumer, les équations de Maxwell peuvent s'écire :
 
-\[ 
+\[\boxed{
 \left\{ \begin{matrix}  \nabla \cdot \vec{E} = \mu_0 \rho  \\
 \nabla \times \vec{E} = - \frac{\partial\vec{B}}{\partial t} \\
 \nabla \cdot \vec{B} = 0 \\
 \nabla \times \vec{B} = \mu_{0}\vec{j} + \frac{\partial\vec{E}}{\partial t}
 \end{matrix} \right.
-\]
+}\]
 
 Usuellement, on écrit ces équations dans un système d'unité où $c \ne 1$. On introduit alors la constante $\epsilon_0$ telle que $\epsilon_0 =\frac{1}{\mu_0 c^2}$. Les équations de Maxwell s'écrivent alors :
 
-\[ 
+\[\boxed{
 \left\{ \begin{matrix}  \nabla \cdot \vec{E} = \frac{\rho}{\epsilon_0}  \\
 \nabla \times \vec{E} = - \frac{\partial\vec{B}}{\partial t} \\
 \nabla \cdot \vec{B} = 0 \\
 \nabla \times \vec{B} = \mu_{0}\left(\vec{j} + \epsilon_0\frac{\partial\vec{E}}{\partial t}\right)
 \end{matrix} \right.
-\]
+}\]
 
 Cette formulation malmène beaucoup moins le sens commun que celle en potentiels, à cause du rapprochement entre les champs $\vec{E}$ et $\vec{B}$ et les forces. Le couplage entre ces deux champs apporte une complication supplémentaire dans la résolution des problêmes ; complication qui vient s'ajouter à celle émanante du couplage entre champ et positions des sources et qu'on trouvait déjà en gravitation Newtonienne. 
 
@@ -3986,7 +4012,7 @@ Lorsque nous avons introduit les champs, fût écrit :
 
 \[
 \left( \begin{matrix}  p 
-\\ \vec{f} \end{matrix} \right) = \left( \begin{matrix} \vec{j} \cdot \vec{E}
+\\ \vec{f} \end{matrix} \right) = \left( -\begin{matrix} \vec{j} \cdot \vec{E}
 \\ \rho \vec{E} + \vec{j} \times \vec{B} \end{matrix} \right)
 \]
 
@@ -4007,23 +4033,23 @@ w = \int p \; dt + \int \vec{f} \cdot \vec{dx}
 \]
 
 \[
-w = \int \vec{j} \cdot \vec{E} \; dt + \int (\rho \vec{E} + \vec{j} \times \vec{B}) \cdot \vec{dx}
+w = -\int \vec{j} \cdot \vec{E} \; dt + \int (\rho \vec{E} + \vec{j} \times \vec{B}) \cdot \vec{dx}
 \]
 
 \[
-w = \int \vec{j} \cdot \vec{E} \; dt + \int (\rho \vec{E} + \vec{j} \times \vec{B}) \cdot \vec{dx}
+w = -\int \vec{j} \cdot \vec{E} \; dt + \int (\rho \vec{E} + \vec{j} \times \vec{B}) \cdot \vec{dx}
 \]
 
 C'est alors qu'on peut s'arranger avec les équations de Maxwell pour faire disparaître la charge et le courant à droite :
 
 \[
-w = \int \vec{j} \cdot \vec{E} \; dt + \int \left(\epsilon_0 (\vec{\nabla} \cdot \vec{E})\cdot \vec{E} + \frac{1}{\mu_0}(\vec{\nabla} \times \vec{B})\times \vec{B}\right) \cdot \vec{dx}
+w = -\int \vec{j} \cdot \vec{E} \; dt + \int \left(\epsilon_0 (\vec{\nabla} \cdot \vec{E})\cdot \vec{E} + \frac{1}{\mu_0}(\vec{\nabla} \times \vec{B})\times \vec{B}\right) \cdot \vec{dx}
 \]
 
 Le terme en $\vec{E}$ est mathématiquement de la forme $f\times \frac{df}{dx}$, qu'on se convaincra être égal à $\frac{1}{2} \frac{df^2}{dx}$. On développe également le double produit scalaire sur $\vec{B}$ \textcolor{red}{(pas parlé avant)} :
 
 \[
-w = \int \vec{j} \cdot \vec{E} \; dt + \int \left(\epsilon_0\frac{\vec{\nabla}||\vec{E}||^2 }{2}
+w = -\int \vec{j} \cdot \vec{E} \; dt + \int \left(\epsilon_0\frac{\vec{\nabla}||\vec{E}||^2 }{2}
 + \frac{1}{\mu_0}((\vec{\nabla}\cdot \vec{B})\vec{B}-\vec{\nabla}(\vec{B}\cdot \vec{B})\right) 
 \cdot \vec{dx}
 \]
@@ -4031,17 +4057,17 @@ w = \int \vec{j} \cdot \vec{E} \; dt + \int \left(\epsilon_0\frac{\vec{\nabla}||
 Pour finir, en se souvenant que la divergence de $\vec{B}$ est nulle :
 
 \[
-w = \int \vec{j} \cdot \vec{E} \; dt + \int \vec{\nabla} \left(\epsilon_0\frac{||\vec{E}||^2 }{2}
+w = -\int \vec{j} \cdot \vec{E} \; dt + \int \vec{\nabla} \left(\epsilon_0\frac{||\vec{E}||^2 }{2}
 - \frac{||\vec{B}||^2}{\mu_0}\right) 
 \cdot \vec{dx}
 \]
 
 Qui n'est autre que :
 
-\[
-w = \int \vec{j} \cdot \vec{E} \; dt + \epsilon_0\frac{||\vec{E}||^2 }{2}
+\[\boxed{
+w = -\int \vec{j} \cdot \vec{E} \; dt + \epsilon_0\frac{||\vec{E}||^2 }{2}
 - \frac{||\vec{B}||^2}{\mu_0}
-\]
+}\]
 
 \textcolor{red}{(faux pour $\vec{B}$, où est le vecteur de Poynting ?)}
 
@@ -4056,7 +4082,7 @@ Nous allons nous appuyer sur le problême suivant pour appréhender le phénomême d
 \def\svgwidth{\textwidth}
 \input{induction.pdf_tex}
 
-On considère un fil infini parcouru par un courant variable $I$ vis-à-vis duquel on trouve une spire (fil circulaire).
+On considère un fil rectiligne infini parcouru par un courant variable $I$ vis-à-vis duquel on trouve une spire (fil circulaire).
 
 Nous n'avons pas encore abordé le sujet du \emph{conducteur électrique}, et cette notion bien que connue de tous peut vous sembler obscure. Nous verrons dans le prochain chapitre ce qu'est vraiment un fil électrique, mais dans cette exemple vous pouvez le considérer comme une sorte de "guide de charge" qui contraint leur mouvement sans pour autant les freiner. Un \emph{supraconducteur}, en fait, même si ce terme qui désigne un phénomême compliqué est encore loin de pouvoir être introduit.
 
@@ -4171,7 +4197,7 @@ Ce qui achève la première partie de ce calcul. En toute honnêteté, nous avons ou
 
 \[
 \left( \begin{matrix}  p 
-\\ \vec{f} \end{matrix} \right) = \left( \begin{matrix} \vec{j} \cdot \vec{E}
+\\ \vec{f} \end{matrix} \right) = \left( \begin{matrix} -\vec{j} \cdot \vec{E}
 \\ \rho \vec{E} + \vec{j} \times \vec{B} \end{matrix} \right)
 \]
 
@@ -4179,7 +4205,7 @@ On considère maintenant la spire. Comme déjà précisé lors de la présentation de 
 
 \[
 \left( \begin{matrix}  p 
-\\ \vec{f} \end{matrix} \right) = \left( \begin{matrix} \vec{j_e} \cdot \vec{E}
+\\ \vec{f} \end{matrix} \right) = \left( \begin{matrix} -\vec{j_e} \cdot \vec{E}
 \\ -c_e q_e \vec{E} + \vec{j_e} \times \vec{B} \end{matrix} \right)
 \]
 
@@ -4252,7 +4278,7 @@ Pour écrire :
 
 Or, quand on fait l'application numérique de $\frac{\mu_{0}^2 c^{-2}}{4 \pi}$, on aperçoit que cette grandeur est extrêmement petite. Pour que ce terme ne soit pas négligeable devant le terme en $\vec{j_2}$, il faudrait que $\frac{\partial^2 I_1}{\partial t^2}$ soit très grand ce qui n'est possible qu'en travaillant à très haute fréquence.
 
-Ce cadre d'étude - dit \emph{propagatif} - est la version la plus correcte mais la plus lourde de l'électro-magnétodynamique. Elle est à la base de l'optique géométrique, comme nous le verrons ultérieurement. On peut cependant très largement s'en passer dans l'étude des machines électriques et des circuits magnétiques, qui ne travaillent jamais à ces niveaux de fréquence ; mais pas dans les semi-conducteurs de puissance.
+Ce cadre d'étude - dit \emph{propagatif} - est la version la plus correcte mais la plus lourde de l'électro-magnétodynamique. Elle est à la base de l'optique géométrique, comme nous le verrons ultérieurement \textcolor{red}{(pas fait)}. On peut cependant très largement s'en passer dans l'étude des machines électriques et des circuits magnétiques, qui ne travaillent jamais à ces niveaux de fréquence ; mais pas dans les semi-conducteurs de puissance.
 
 Laissons donc tomber le terme propagatif ; les choses sont bien assez compliquées comme ça :
 
@@ -4260,13 +4286,13 @@ Laissons donc tomber le terme propagatif ; les choses sont bien assez compliquée
 \nabla \times \vec{B_2} = \mu_{0}\vec{j_2}
 \]
 
-Le courant $I_2$ est la source d'un champ magnétique $\vec{B_2}$ qui vient s'ajouter partout et en tout temps au champ précédemment calculé $\vec{B_1}$, de sorte que l'énergie du champ résultant $\vec{B} = \vec{B_1} + \vec{B_2}$ - champ difficilement calculable (c'est possible analytiquement, mais compliqué et pas très intéressant)soit connue car elle est le défaut pris dans celle de $\vec{B_1}$ et qui est venu alimenter $I_2$ :
+Le courant $I_2$ est la source d'un champ magnétique $\vec{B_2}$ qui vient s'ajouter partout et en tout temps au champ précédemment calculé $\vec{B_1}$, de sorte que l'énergie du champ résultant $\vec{B} = \vec{B_1} + \vec{B_2}$ - champ difficilement calculable (c'est possible analytiquement, mais compliqué et pas très intéressant) soit connue car elle est le défaut pris dans celle de $\vec{B_1}$ et qui est venu alimenter $I_2$ :
 
 \[
 E(\vec{B}) = E(\vec{B_1}) - E(\vec{B_2})
 \]
 
-Le champ résultant $\vec{B}$ est trop compliqué à calculer, mais par des considérations de symétrie auxquelles je vous laisse réfléchir, il est impossible que $\vec{B}$ suive une autre direction que $\vec{e_z}$ dans le plan qui contient notre système. Ainsi, Maxwell-Faraday donne un produit $\vec{j} \cdot \vec{E}$ nul partout dans le fil rectiligne ; ce qui brise le couplage. C'est la raison pour laquelle ce problême peut-être étudié en quelques pages.
+Le champ résultant $\vec{B}$ est trop compliqué à calculer, mais par des considérations de symétrie auxquelles je vous laisse réfléchir, il est impossible que $\vec{B_2}$ suive une autre direction que $\vec{e_z}$ dans le plan qui contient notre système. Ainsi, Maxwell-Faraday donne un produit $\vec{j} \cdot \vec{E}$ nul partout dans le fil rectiligne ; ce qui brise le couplage. C'est la raison pour laquelle ce problême peut-être étudié en quelques pages.
 
 Néanmoins, rien ne dit que ce champ additionnel $\vec{B_2}$ crée n'interfère pas avec la spire elle-même. On parlerait alors d'\emph{auto-induction}. Ce phénomême existe effectivement, et peut-être traité analytiquement même sans connaître précisément $\vec{B_2}$.
 
@@ -4284,7 +4310,7 @@ On voit que $\vec{B_1}$ est proportionnel à $I_1$ ; mais que ledit facteur de pr
 \iint_{\mathcal{S}} \vec{B_1} \cdot \vec{dS} =  \iint_{\mathcal{S}} \frac{\mu_{0}I_1}{2\pi R}\vec{e_{\theta}} \cdot \vec{dS}
 \]
 
-Appelons \emph{flux magnétique} dans la spire le terme de gauche :
+Appelons cette intégrale \emph{flux magnétique} :
 
 \[
 \Phi_{1,S} =  \frac{\mu_{0}r^2}{2 R}I_1
@@ -4324,7 +4350,7 @@ On peut déjà dire que d'après la même raison que pour $M_{21}$, $L_1$ est nul. E
 Tout l'intéret de formulation en inductance émane de la possibilité qui nous est offerte à pouvoir affecter une valeur à $L_2$ sur la base de simples considérations énergétiques. Revenons sur :
 
 \[
-p = \vec{j} \cdot \vec{E}
+p = -\vec{j} \cdot \vec{E}
 \]
 
 La spire est un sous-système de notre problême, qui vient absorber une partie de l'énergie du champ $\vec{B_1}$ pour l'envoyer tout entière dans $\vec{B_2}$ \textcolor{red}{(vérifier ça)}.
@@ -4332,75 +4358,73 @@ La spire est un sous-système de notre problême, qui vient absorber une partie de
 L'énergie absorbée par la spire pendant toute son existence est donc :
 
 \[
-W_2 = \int \iiint_\Omega \left( \vec{j_2} \cdot \vec{E} \right) dV dt
+W_2 = -\int \iiint_\Omega \left( \vec{j_2} \cdot \vec{E} \right) dV dt
 \]
 
 Après s'être placé dans le système de coordonées adéquat (cylindrique en l'occurence) :
 
 \[
-W_2 = \int I_2 \oint_C \vec{E} \cdot \vec{dl} dt
+W_2 = -\int I_2 \oint_C \vec{E} \cdot \vec{dl} dt
 \]
 
 D'après le théorème de Stokes :
 
 \[
-W_2 = \int I_2 \iint_S \left(\nabla \times \vec{E} \right) \cdot \vec{dS}  dt
+W_2 = -\int I_2 \iint_S \left(\nabla \times \vec{E} \right) \cdot \vec{dS}  dt
 \]
 
 Ou encore :
 
 \[
-W_2 = - \int I_2 \iint_S \frac{\partial\vec{B}}{\partial t} \cdot \vec{dS}  dt
+W_2 = \int I_2 \iint_S \frac{\partial\vec{B}}{\partial t} \cdot \vec{dS}  dt
 \]
 
 \[
-W_2 = - \int I_2 \frac{\partial}{\partial t}\iint_S \vec{B} \cdot \vec{dS}  dt
+W_2 = \int I_2 \frac{\partial}{\partial t}\iint_S \vec{B} \cdot \vec{dS}  dt
 \]
 
 \[
-W_2 = - \int I_2 \frac{\partial\Phi_{S}}{\partial t}  dt
+W_2 = \int I_2 \frac{\partial\Phi_{S}}{\partial t}  dt
 \]
 
 D'après la définition de l'inductance :
 
 \[
-W_2 = - L_2 \int I_2 \frac{\partial I_2}{\partial t}  dt
+W_2 = L_2 \int I_2 \frac{\partial I_2}{\partial t}  dt
 \]
 
 \[
-W_2 = - L_2 \int I_2 dI_2
+W_2 = L_2 \int I_2 dI_2
 \]
 
 \[
-W_2 = -\frac{1}{2} L_2 I_2^2
+W_2 = \frac{1}{2} L_2 I_2^2
 \]
 
 Ou encore :
 
 \[
-W_2 = - \frac{1}{2}I_2 \Phi_{S}
+W_2 = \frac{1}{2}I_2 \Phi_{S}
 \]
-
-Ce travail est négatif car l'énergie $\frac{1}{2}I_2 \Phi_{S}$ échappe à  $I_2$ pour aller dans le champ $\vec{B}$. 
 
 \textcolor{red}{(et pour $L_2$ du coup ?)}
 
 On peut alors introduire la \emph{matrice inductance} :
 
-\[
+\[\boxed{
 \left( \begin{matrix} \Phi_1 \\ \Phi_2 \end{matrix} \right) = 
 \left( \begin{matrix}  
 L_1 & M_{21} \\
 M_{12} & L_2
 \end{matrix} \right)
 \left( \begin{matrix} I_1 \\ I_2 \end{matrix} \right)
-\]
+}\]
 
 Ou symboliquement :
 
-\[
+\[\boxed{
 \Phi^{i} = L^{i}_{\; j} I^{j}
-\]
+}\]
 
 Nous utiliserons abondamment ce concept quand nous présenterons la méthode analytique de résolution des problêmes de circuits magnétiques ou machines électriques.
 
@@ -4423,12 +4447,12 @@ La forme des équations de Maxwell qui a été présentée jusqu'à présent est la seu
 
 Les vrais champs électriques $\vec{E}$ et magnétiques $\vec{B}$ sont la sommes des contributions de $\vec{D}$ et de $\vec{H}$ avec celles de la polarisation $\vec{P}$ et de l'aimantation $\vec{M}$ :
 
-\[
+\[\boxed{
 \left\{ \begin{matrix}
 \vec{E} =  \frac{1}{\epsilon_0}\left(\vec{D}-\vec{P}\right) \\
 \vec{B} =  \mu_0(\vec{H}+\vec{M})
 \end{matrix} \right.
-\]
+}\]
 
 Ne connaissant pas toujours les valeurs de $\vec{P}$ et $\vec{M}$, on préfèrera se référer aux lois de comportement bien que celles-ci soient rarement simple à manipuler.
 
@@ -4436,13 +4460,13 @@ Dans ce cadre, on peut alors réecrire les équations de Maxwell en prenant compte
 
 \textcolor{red}{(faire la démo)}
 
-\[ 
+\[\boxed{
 \left\{ \begin{matrix}  \nabla \cdot \vec{D} = \rho  \\
 \nabla \times \vec{E} = - \frac{\partial\vec{B}}{\partial t} \\
 \nabla \cdot \vec{B} = 0 \\
 \nabla \times \vec{H} = \vec{j} + \frac{\partial\vec{D}}{\partial t}
 \end{matrix} \right.
-\]
+}\]
 
 \section{Interaction électromécanique}
 
@@ -4462,9 +4486,9 @@ De la même façon qu'en thermique, un milieu continu en électromagnétisme est déc
 
 Ou encore :
 
-\[
+\[\boxed{
 \vec{j} = \sigma \vec{E}
-\]
+}\]
 
 Nous donnerons sa justification dans la partie dédiée à la physique statistique \textcolor{red}{(pas fait)}.
 
@@ -4482,27 +4506,19 @@ Dans le chapitre précédent, nous avions écrit l'équation de Maxwell sans source 
 = - \mu_{0}  \left( \begin{matrix} \rho \\ \vec{j} \end{matrix} \right)
 \]
 
-Qu'on préfère sous la forme conventionnelle de l'équation d'onde, ou \emph{équation de D'Alembert} \textcolor{red}{(pas parlé avant)} :
-
-\[ 
-\left( \begin{matrix} \Delta \phi \\ 
-\Delta \vec{A} \end{matrix} \right)
-= - \mu_{0}  \left( \begin{matrix} \rho \\ \vec{j} \end{matrix} \right)
-\]
-
 Cette équation à ceci d'important qu'elle constitue à elle seule un moyen pour calculer tous les champs imaginable dans un code de calcul par éléments finis, comme nous le verrons \textcolor{red}{(pas fait)}.
 
 En \emph{magnétostatique}, contexte d'étude dans lequel on considère l'hypothèse d'un régime quasi-statique et donc dans lequel nous négligeons les dérivées temporelles, on a simplement :
 
-\[ 
+\[\boxed{
 \left( \begin{matrix} \Delta \phi \\ 
 \Delta \vec{A} \end{matrix} \right)
 = - \mu_{0}  \left( \begin{matrix} \rho \\ \vec{j} \end{matrix} \right)
-\]
+}\]
 
 Qui constitue une équation de Poisson, du même type que celle qu'on trouve en gravitation \textcolor{red}{(pas fait)}.
 
-Nous allons maintenant chercher comment celle-ci s'altère en présence de courants induits, on appelle ce cadre d'étude la \emph{magnétodynamique}. Nous nous plaçerons dans un cadre propagatif pour ne pas avoir à le faire plus tard.
+Nous allons maintenant chercher comment celle-ci s'altère en présence de courants induits (dans un matériau à la conductivité finie, donc pas un supraconducteur), on appelle ce cadre d'étude la \emph{magnétodynamique}. Nous nous plaçerons dans un cadre propagatif pour ne pas avoir à le faire plus tard.
 
 Partons de l'équation de Maxwell-Ampère :
 
@@ -4514,7 +4530,7 @@ Partons de l'équation de Maxwell-Ampère :
 \nabla \times \vec{B} = \mu_{0}\left(\sigma\vec{E} + \epsilon_0\frac{\partial\vec{E}}{\partial t}\right)
 \]
 
-On sait que le lien avec les potentiels réside dans les relations $\vec{E} = -\frac{\partial\vec{A}}{\partial t} - \nabla\phi$ \textcolor{red}{(le signe moins devant $\frac{\partial\vec{A}}{\partial t}$ n'apparaissait pas auparavant, à vérifier)} et $\vec{B} = \nabla \times \vec{A}$. Continuons :
+On sait que le lien avec les potentiels réside dans les relations $\vec{E} = -\frac{\partial\vec{A}}{\partial t} - \nabla\phi$ et $\vec{B} = \nabla \times \vec{A}$. Continuons :
 
 \[
 \nabla \times \nabla \times \vec{A} = \mu_{0}\left(\sigma\left(-\frac{\partial\vec{A}}{\partial t} - \nabla\phi\right) + \epsilon_0\left(-\frac{\partial^2\vec{A}}{\partial t^2} - \nabla\left(\frac{\partial\phi}{\partial t}\right)\right)\right)
@@ -4540,9 +4556,9 @@ Pour reconnaître un Laplacien :
 
 La magie opère. Que nous donne la mise en forme d'équation d'onde ?
 
-\[
+\[\boxed{
 \Delta \vec{A} -\mu_{0}\sigma\frac{\partial\vec{A}}{\partial t} - \mu_{0}\epsilon_0\frac{\partial^2\vec{A}}{\partial t^2} = \mu_{0}\sigma\nabla\phi
-\]
+}\]
 
 \textcolor{red}{(expliquer le terme en $\phi$ s'il est correct et bien signé. Discuter de l'équation en $\phi$)}
 
@@ -4727,9 +4743,9 @@ De valeur moyenne :
 
 Bien souvent, on aura une relation de proportionnalité entre $\vec{B}$ et un courant $\underline{I}$, ce qui nous amènera à écrire une relation de la forme :
 
-\[
+\[\boxed{
 \braket{P} = R_f|\underline{I}|^2
-\]
+}\]
 
 Introduisant la \emph{résistance fer} qui apparaîtra dans les modèles externes des dispositifs électrotechniques tels que le transformateur.
 
@@ -4927,7 +4943,7 @@ Plus largement, quand le courant en provenance d'un dipôle est réparti entre deu
 
 On a :
 
-\[ 
+\[
 I_3 = I_2 + I_1 
 \]
 
@@ -4988,13 +5004,13 @@ U_3 + U_2 = U_1
 
 L'idée de la méthode qui va être présentée - et qui est à la base du génie électrique - va consister à dessiner des schémas liants les différents dipôles électriques (chacun étant associé à ses deux grandeurs $U$ et $I$) afin de pouvoir écrire un système d'équations différentielles solvable.
 
-Tout la puissance de cette méthode - par rapport aux formulations locales qui ont été discutées jusqu'à présent - réside dans le fait que les équations différentielles à résoudre sont \emph{ordinaires} et non \emph{aux dérivées partielles}.
+Tout la puissance de cette méthode - par rapport aux formulations locales qui ont été discutées jusqu'à présent - réside dans le fait que les équations différentielles à résoudre sont \emph{ordinaires} et non \emph{aux dérivées partielles}, ce qui permet de s'émanciper de la géométrie des consituants par la mise en place d'un \emph{modèle externe}.
 
 \textcolor{red}{(Ajouter un passage sur la puissance électrique)}
 
 \subsection{Dipôles élémentaires}
 
-Commençons par établir une liste des dipôles électriques couramment utilisés dans les schémas \textcolor{red}{(utiliser des minuscules ?)} :
+Commençons par établir une liste des dipôles électriques couramment utilisés dans les schémas :
 
 \subsubsection{La source de tension}
 
@@ -5015,9 +5031,9 @@ On décrira le comportement des composants atemporels par leur \emph{caractéristi
 \begin{tikzpicture}
 // Axes
 \draw[->] (-1,0) -- (1,0);
-\draw (1,0) node[right] {$i$};
+\draw (1,0) node[right] {$I$};
 \draw [->] (0,0) -- (0,1);
-\draw (0,1) node[above] {$u$};
+\draw (0,1) node[above] {$U$};
 
 // Contenu
 \draw[very thick] (-1,0.5) -- (1,0.5);
@@ -5042,9 +5058,9 @@ Exactement de la même façon que la précédente, la source de courant fixe le cour
 \begin{tikzpicture}
 // Axes
 \draw[->] (0,0) -- (1,0);
-\draw (1,0) node[right] {$i$};
+\draw (1,0) node[right] {$I$};
 \draw [->] (0,-1) -- (0,1);
-\draw (0,1) node[above] {$u$};
+\draw (0,1) node[above] {$U$};
 
 // Contenu
 \draw[very thick] (0.5,-1) -- (0.5,1);
@@ -5065,9 +5081,9 @@ Exactement de la même façon que la précédente, la source de courant fixe le cour
 
 La résistance décrit des effets purement résistifs, dans un conducteur. C'est-à-dire que sa \emph{loi de comportement} (ce qui lie $U$ à $I$) est une simple relation de proportionnalité appellée \emph{loi d'Ohm} :
 
-\[ 
+\[\boxed{
 U = RI
-\]
+}\]
 
 Avec $R$ sa \emph{résistance}.
 
@@ -5075,9 +5091,9 @@ Avec $R$ sa \emph{résistance}.
 \begin{tikzpicture}
 // Axes
 \draw[->] (-1,0) -- (1,0);
-\draw (1,0) node[right] {$i$};
+\draw (1,0) node[right] {$I$};
 \draw [->] (0,-1) -- (0,1);
-\draw (0,1) node[above] {$u$};
+\draw (0,1) node[above] {$U$};
 
 // Contenu
 \draw[very thick] (-0.5,-1) -- (0.5,1);
@@ -5098,9 +5114,9 @@ Avec $R$ sa \emph{résistance}.
 
 Nous avons déjà étudié un exemple de condensateur \textcolor{red}{(en fait non mais faut le faire)}, dans lequel est présent un champ électrique qui vient contrecarrer les variations de tension. On décrit cette effet par une \emph{capacité} $C$ au travers d'une équation différentielle :
 
-\[ 
+\[\boxed{
 I = C\frac{dU}{dt}
-\]
+}\]
 
 La caractéristique de transfert ne peut-être tracée étant donné que le comportement de ce dipôle fait intervenir le temps.
 
@@ -5117,9 +5133,9 @@ La caractéristique de transfert ne peut-être tracée étant donné que le comportem
 
 Un dispositif inductif fait avec le champ magnétique ce que la capacité fait avec le champ électrique, c'est à dire que :
 
-\[ 
+\[\boxed{
 U = L\frac{dI}{dt}
-\]
+}\]
 
 Remarquez qu'on ne considère ici qu'une inductance propre $L$, ce qui fonctionne pour un solénoïde simple mais pas pour une machine électrique par exemple.
 
@@ -5134,7 +5150,7 @@ Remarquez qu'on ne considère ici qu'une inductance propre $L$, ce qui fonctionne
 \end{center}
 \shorthandon{:!}
 
-Un grand nombre de composant mécanique, électronique ou électrotechnique peut en fait faire office d'interrupteur. Ceux-ci servent à ouvrir ou fermer une branche du circuit. Selon qu'il est ouvert ou fermé, on peut ou bien remplacer un interrupteur par une source de courant nulle ou une source de tension nulle.
+Un grand nombre de composants mécanique, électronique ou électrotechnique peuvent en fait faire office d'interrupteur. Ceux-ci servent à ouvrir ou fermer une branche du circuit. Selon qu'il est ouvert ou fermé, on peut ou bien remplacer un interrupteur par une source de courant nulle ou une source de tension nulle.
 
 Parce-qu'une commande extérieure intervient, la caractéristique de transfert n'est pas un outil utilisable en tant que tel pour décrire l'interrupteur. On peut toutefois imaginer une représentation moins juste mais qui resterait parlante :
 
@@ -5142,9 +5158,9 @@ Parce-qu'une commande extérieure intervient, la caractéristique de transfert n'e
 \begin{tikzpicture}
 // Axes
 \draw[->] (-1,0) -- (1,0);
-\draw (1,0) node[right] {$i$};
+\draw (1,0) node[right] {$I$};
 \draw [->] (0,-1) -- (0,1);
-\draw (0,1) node[above] {$u$};
+\draw (0,1) node[above] {$U$};
 
 // Contenu
 \draw[very thick] (0.1,-1) -- (0.1,1);
@@ -5175,9 +5191,9 @@ La diode est une composant non-linéaire (contrairement à tous les précédents à l
 \begin{tikzpicture}
 // Axes
 \draw[->] (0,0) -- (1,0);
-\draw (1,0) node[right] {$i$};
+\draw (1,0) node[right] {$I$};
 \draw [->] (0,-1) -- (0,1);
-\draw (0,1) node[above] {$u$};
+\draw (0,1) node[above] {$U$};
 
 // Contenu
 \draw[very thick] (0.1,-0.1) -- (1,-0.1);
@@ -5203,9 +5219,9 @@ Ce composant est une diode qui doit être \emph{amorçé} par le biais d'une \emph{
 \begin{tikzpicture}
 // Axes
 \draw[->] (0,0) -- (1,0);
-\draw (1,0) node[right] {$i$};
+\draw (1,0) node[right] {$I$};
 \draw [->] (0,-1) -- (0,1);
-\draw (0,1) node[above] {$u$};
+\draw (0,1) node[above] {$U$};
 
 // Contenu
 \draw[very thick] (0.1,-1) -- (0.1,1);
@@ -5233,9 +5249,9 @@ Ce composant devient spontanément une diode quand sa tension devient négative, p
 \begin{tikzpicture}
 // Axes
 \draw[->] (0,0) -- (1,0);
-\draw (1,0) node[right] {$i$};
+\draw (1,0) node[right] {$I$};
 \draw [->] (0,-1) -- (0,1);
-\draw (0,1) node[above] {$u$};
+\draw (0,1) node[above] {$U$};
 
 // Contenu
 \draw[<-, very thick] (0.15,0.05) -- (0.15,1);
@@ -5257,7 +5273,7 @@ Ce composant devient spontanément une diode quand sa tension devient négative, p
 
 La dualité est un concept puissant qui émane du fait que des valeurs couplées parsèment toute la théorie de l'électromagnétisme.
 
-Le dual d'un composant a le comportement donné lorsqu'on inverse $u$ et $i$ dans les équations dudit composant. Le tableau suivant en donne les exemples fondamentaux :
+Le dual d'un composant a le comportement donné lorsqu'on inverse $U$ et $I$ dans les équations dudit composant. Le tableau suivant en donne les exemples fondamentaux :
 
 \begin{center}
 \begin{tabular}{cc|cc}
@@ -5272,9 +5288,9 @@ Le dual d'un composant a le comportement donné lorsqu'on inverse $u$ et $i$ dans
 \begin{tikzpicture}
 // Axes
 \draw[->] (-1,0) -- (1,0);
-\draw (1,0) node[right] {$i$};
+\draw (1,0) node[right] {$I$};
 \draw [->] (0,0) -- (0,1);
-\draw (0,1) node[above] {$u$};
+\draw (0,1) node[above] {$U$};
 
 // Contenu
 \draw[very thick] (-1,0.5) -- (1,0.5);
@@ -5291,9 +5307,9 @@ Le dual d'un composant a le comportement donné lorsqu'on inverse $u$ et $i$ dans
 \begin{tikzpicture}
 // Axes
 \draw[->] (0,0) -- (1,0);
-\draw (1,0) node[right] {$i$};
+\draw (1,0) node[right] {$I$};
 \draw [->] (0,-1) -- (0,1);
-\draw (0,1) node[above] {$u$};
+\draw (0,1) node[above] {$U$};
 
 // Contenu
 \draw[very thick] (0.5,-1) -- (0.5,1);
@@ -5312,9 +5328,9 @@ Le dual d'un composant a le comportement donné lorsqu'on inverse $u$ et $i$ dans
 \begin{tikzpicture}
 // Axes
 \draw[->] (-1,0) -- (1,0);
-\draw (1,0) node[right] {$i$};
+\draw (1,0) node[right] {$I$};
 \draw [->] (0,-1) -- (0,1);
-\draw (0,1) node[above] {$u$};
+\draw (0,1) node[above] {$U$};
 
 // Contenu
 \draw[very thick] (-0.5,-1) -- (0.5,1);
@@ -5331,9 +5347,9 @@ Le dual d'un composant a le comportement donné lorsqu'on inverse $u$ et $i$ dans
 \begin{tikzpicture}
 // Axes
 \draw[->] (-1,0) -- (1,0);
-\draw (1,0) node[right] {$i$};
+\draw (1,0) node[right] {$I$};
 \draw [->] (0,-1) -- (0,1);
-\draw (0,1) node[above] {$u$};
+\draw (0,1) node[above] {$U$};
 
 // Contenu
 \draw[very thick] (-1,-0.5) -- (1,0.5);
@@ -5372,9 +5388,9 @@ $U = C\frac{dI}{dt}$
 \begin{tikzpicture}
 // Axes
 \draw[->] (-1,0) -- (1,0);
-\draw (1,0) node[right] {$i$};
+\draw (1,0) node[right] {$I$};
 \draw [->] (0,-1) -- (0,1);
-\draw (0,1) node[above] {$u$};
+\draw (0,1) node[above] {$U$};
 
 // Contenu
 \draw[very thick] (0.1,-1) -- (0.1,1);
@@ -5395,9 +5411,9 @@ $U = C\frac{dI}{dt}$
 \begin{tikzpicture}
 // Axes
 \draw[->] (-1,0) -- (1,0);
-\draw (1,0) node[right] {$i$};
+\draw (1,0) node[right] {$I$};
 \draw [->] (0,-1) -- (0,1);
-\draw (0,1) node[above] {$u$};
+\draw (0,1) node[above] {$U$};
 
 // Contenu
 \draw[very thick] (0.1,-1) -- (0.1,1);
@@ -5412,16 +5428,16 @@ $U = C\frac{dI}{dt}$
 
 \shorthandoff{:!}
 \begin{tikzpicture}
-  \draw (0,0) to[D, v^=$u$, i=$i$] ++(2,0);
+  \draw (0,0) to[D, v^=$U$, i=$I$] ++(2,0);
 \end{tikzpicture}
 \shorthandon{:!} &
 
 \begin{tikzpicture}
 // Axes
 \draw[->] (0,0) -- (1,0);
-\draw (1,0) node[right] {$i$};
+\draw (1,0) node[right] {$I$};
 \draw [->] (0,-1) -- (0,1);
-\draw (0,1) node[above] {$u$};
+\draw (0,1) node[above] {$U$};
 
 // Contenu
 \draw[very thick] (0.1,-0.1) -- (1,-0.1);
@@ -5430,16 +5446,16 @@ $U = C\frac{dI}{dt}$
 
 \shorthandoff{:!}
 \begin{tikzpicture}
-  \draw (2,0) to[D, v>=$u$, i<_=$i$] ++(-2,0);
+  \draw (2,0) to[D, v>=$U$, i<_=$I$] ++(-2,0);
 \end{tikzpicture}
 \shorthandon{:!} &
 
 \begin{tikzpicture}
 // Axes
 \draw[->] (-1,0) -- (1,0);
-\draw (1,0) node[right] {$i$};
+\draw (1,0) node[right] {$I$};
 \draw [->] (0,0) -- (0,1);
-\draw (0,1) node[above] {$u$};
+\draw (0,1) node[above] {$U$};
 
 // Contenu
 \draw[very thick] (-0.1,0.1) -- (-1,0.1);
@@ -5450,7 +5466,7 @@ $U = C\frac{dI}{dt}$
 
 \shorthandoff{:!}
 \begin{tikzpicture}
-  \draw (0,0) to[Ty, v=$u$, i=$i$] ++(2,0);
+  \draw (0,0) to[Ty, v=$U$, i=$I$] ++(2,0);
   \draw (1.75,0.8) node[below left] {$a$};
 \end{tikzpicture}
 \shorthandon{:!} &
@@ -5458,9 +5474,9 @@ $U = C\frac{dI}{dt}$
 \begin{tikzpicture}
 // Axes
 \draw[->] (0,0) -- (1,0);
-\draw (1,0) node[right] {$i$};
+\draw (1,0) node[right] {$I$};
 \draw [->] (0,-1) -- (0,1);
-\draw (0,1) node[above] {$u$};
+\draw (0,1) node[above] {$U$};
 
 // Contenu
 \draw[very thick] (0.1,-1) -- (0.1,1);
@@ -5472,7 +5488,7 @@ $U = C\frac{dI}{dt}$
 \shorthandoff{:!}
 \begin{tikzpicture}
   \draw (0,0) to[Ty] ++(1.5,0) -- ++(0,-1)
-  to[D, v^>=$u$] ++(-1.5,0) -- ++(0,1);
+  to[D, v^>=$U$] ++(-1.5,0) -- ++(0,1);
   \draw (0,-0.5) -- ++(-0.5,0);
   \draw (1.5,-0.5) -- ++(0.5,0);
   \draw (1.5,0.8) node[below left] {$b$};
@@ -5482,9 +5498,9 @@ $U = C\frac{dI}{dt}$
 \begin{tikzpicture}
 // Axes
 \draw[->] (-1,0) -- (1,0);
-\draw (1,0) node[right] {$i$};
+\draw (1,0) node[right] {$I$};
 \draw [->] (0,0) -- (0,1);
-\draw (0,1) node[above] {$u$};
+\draw (0,1) node[above] {$U$};
 
 // Contenu
 \draw[very thick] (-1,0.1) -- (1,0.1);
@@ -5498,7 +5514,7 @@ $U = C\frac{dI}{dt}$
 \shorthandoff{:!}
 \begin{tikzpicture}
 \centering
-  \draw	(0,0) to[thyristor, v<=$i$, i^>=$i$] (2,0);
+  \draw	(0,0) to[thyristor, v<=$I$, i^>=$I$] (2,0);
   \draw (1.75,0.8) node[below left] {$b$};
 \end{tikzpicture}
 \shorthandon{:!} &
@@ -5506,9 +5522,9 @@ $U = C\frac{dI}{dt}$
 \begin{tikzpicture}
 // Axes
 \draw[->] (0,0) -- (1,0);
-\draw (1,0) node[right] {$i$};
+\draw (1,0) node[right] {$I$};
 \draw [->] (0,-1) -- (0,1);
-\draw (0,1) node[above] {$u$};
+\draw (0,1) node[above] {$U$};
 
 // Contenu
 \draw[<-, very thick] (0.15,0.1) -- (0.15,1);
@@ -5521,7 +5537,7 @@ $U = C\frac{dI}{dt}$
 \shorthandoff{:!}
 \begin{tikzpicture}
   \draw (0,0) to[Ty] ++(1.5,0) -- ++(0,-1)
-  to[D, v^>=$u$] ++(-1.5,0) -- ++(0,1);
+  to[D, v^>=$U$] ++(-1.5,0) -- ++(0,1);
   \draw (0,-0.5) -- ++(-0.5,0);
   \draw (1.5,-0.5) -- ++(0.5,0);
   \draw (1.5,0.8) node[below left] {$a$};
@@ -5531,9 +5547,9 @@ $U = C\frac{dI}{dt}$
 \begin{tikzpicture}
 // Axes
 \draw[->] (-1,0) -- (1,0);
-\draw (1,0) node[right] {$i$};
+\draw (1,0) node[right] {$I$};
 \draw [->] (0,0) -- (0,1);
-\draw (0,1) node[above] {$u$};
+\draw (0,1) node[above] {$U$};
 
 // Contenu
 \draw[<-, very thick] (0.05,0.15) -- (1,0.15);
@@ -5559,65 +5575,65 @@ $U = C\frac{dI}{dt}$
 Avant de lire cette partie, vous êtes invité à reprendre le passage sur l'inégalité de Cauchy-Schwartz du chapitre sur les espaces fonctionnels. Nous avions écrit :
 
 \[
-\frac{||u||}{\aleph_1} = \frac{u_0}{\sqrt{2}}, \; \frac{||i||}{\aleph_1} = \frac{i_0}{\sqrt{2}}
+\frac{||U||}{\aleph_1} = \frac{U_0}{\sqrt{2}}, \; \frac{||I||}{\aleph_1} = \frac{I_0}{\sqrt{2}}
 \]
 
-Et avions appelé $\frac{||u||}{\aleph_1}$ et $\frac{||u||}{\aleph_1}$ les valeurs efficaces des deux grandeurs, qu'on interprète en théorie du signal comme des écart-types au sens des statistiques \textcolor{red}{(éclaircir)}.
+Et avions appelé $\frac{||U||}{\aleph_1}$ et $\frac{||U||}{\aleph_1}$ les valeurs efficaces des deux grandeurs, qu'on interprète en théorie du signal comme des écart-types au sens des statistiques \textcolor{red}{(éclaircir)}.
 
-Une grandeur $g$ sinusoïdale peut s'écrire :
+Une grandeur $G$ sinusoïdale peut s'écrire :
 
 \[
-g(t) = g_0 \Re e^{j(\omega t + \phi)}
+G(t) = G_0 \Re e^{j(\omega t + \phi)}
 \]
 
 En introduisant sa valeur efficace :
 
 \[
-g(t) = \sqrt{2} \Re \left( \frac{||g||}{\aleph_1} e^{j\phi} e^{j\omega t}\right)
+G(t) = \sqrt{2} \Re \left( \frac{||G||}{\aleph_1} e^{j\phi} e^{j\omega t}\right)
 \]
 
 La convention qui prévaut dans toute l'étude des régimes alternatif est de décrire $g$ par le nombre complexe :
 
 \[
-\underline{G} = \frac{||g||}{\aleph_1} e^{j\phi}
+\underline{G} = \frac{||G||}{\aleph_1} e^{j\phi}
 \]
 
 De sorte que :
 
 \[
-g = \sqrt{2} \Re \left(\underline{G} e^{j\omega t}\right)
+G = \sqrt{2} \Re \left(\underline{G} e^{j\omega t}\right)
 \]
 
-La raison qu'on peut trouver à cette façon de faire est purement pratique : les complexes sont plus maléables et compacts dans leur écriture (surtout si l'on omet de spécifier le $\omega t$ comme dans $g$) que les fonctions trigonométriques.
+La raison qu'on peut trouver à cette façon de faire est purement pratique : les complexes sont plus maléables et compacts dans leur écriture (surtout si l'on omet de spécifier le $\omega t$ comme dans $G$) que les fonctions trigonométriques.
 
 On notera que la valeur efficace se retrouve être selon cette définition le module de $G$ :
 
 \[
-\frac{||g||}{\aleph_1} = |\underline{G}|
+\frac{||G||}{\aleph_1} = |\underline{G}|
 \]
 
 En outre, on écrira les équations qui régissent un circuit en faisant intervenir les \emph{impédances} notées $Z$ qui coïncident avec la notion de résistance, mais contenant en outre l'information sur le déphasage tension-courant introduit. La loi d'ohm deviendra alors :
 
-\[
+\[\boxed{
 \underline{U} = \underline{Z}\underline{I}
-\]
+}\]
 
-Imposons une certaine tension $u = u_0 \cos(\omega t)$, notée sous forme complexe $\underline{U} = |\underline{U}| = \frac{u_0}{\sqrt{2}}$ (le zéro temporel est calé sur le maximum de $u$). Aux bornes d'une capacité :
-
-\[ 
-i = C\frac{du}{dt}
-\]
+Imposons une certaine tension $U = U_0 \cos(\omega t)$, notée sous forme complexe $\underline{U} = |\underline{U}| = \frac{U_0}{\sqrt{2}}$ (le zéro temporel est calé sur le maximum de $U$). Aux bornes d'une capacité :
 
 \[ 
-i = Cu_0\frac{d\cos(\omega t)}{dt}
+I = C\frac{dU}{dt}
 \]
 
 \[ 
-i = -C\omega u_0\sin(\omega t)
+I = CU_0\frac{d\cos(\omega t)}{dt}
 \]
 
 \[ 
-i = -C\omega u_0\cos(\omega t-\frac{\pi}{2})
+I = -C\omega U_0\sin(\omega t)
+\]
+
+\[ 
+I = -C\omega U_0\cos(\omega t-\frac{\pi}{2})
 \]
 
 Noté sous forme complexe :
@@ -5632,27 +5648,27 @@ Noté sous forme complexe :
 
 Dont découle que l'impédance d'une capacité est :
 
-\[ 
+\[\boxed{
 \underline{Z} = \frac{1}{jC\omega}
-\]
+}\]
 
 Je vous laisse vérifier que pour une inductance nous trouvons :
 
-\[ 
+\[
 \underline{Z} = \frac{L\omega}{-j}
 \]
 
 Et parce-que $\frac{1}{z} = \frac{z^*}{zz^*} = \frac{1}{||z||^2}$ :
 
-\[ 
+\[\boxed{
 \underline{Z} = jL\omega
-\]
+}\]
 
 Et bien sûr sans oublier le troisième dipôle passif linéaire élémentaire, la résistance :
 
-\[ 
+\[\boxed{
 \underline{Z} = R
-\]
+}\]
 
 Une fois ceci fait, absolument tous les théorèmes de la section précédente faisant intervenir des résistances en régime continu sont transposables aux impédances en régime alternatif \textcolor{red}{(pas fait, ajouter exemple)}.
 
@@ -5661,51 +5677,51 @@ Une fois ceci fait, absolument tous les théorèmes de la section précédente faisa
 L'adaptation du formalisme complexe aux considérations énergétiques demande quelques précautions. La puissance électrique est donnée par :
 
 \[
-p = u\times i
+P = U\times I
 \]
 
 En régime alternatif, sous forme complexe :
 
 \[
-p = \sqrt{2} \Re \left(\underline{U} e^{j\omega t}\right) \times \sqrt{2} \Re \left(\underline{I} e^{j\omega t}\right)
+P = \sqrt{2} \Re \left(\underline{U} e^{j\omega t}\right) \times \sqrt{2} \Re \left(\underline{I} e^{j\omega t}\right)
 \]
 
-La forme complexe n'est pas directement adapté au calcul sur les énergies, car le produit des parties réelles n'est pas égale à la partie réelle du produit. Soient $u$ et $i$ deux grandeurs alternatives déphasées d'un angle $\varphi$ :
+La forme complexe n'est pas directement adapté au calcul sur les énergies, car le produit des parties réelles n'est pas égale à la partie réelle du produit. Soient $U$ et $I$ deux grandeurs alternatives déphasées d'un angle $\varphi$ :
 
 \[
-p = u_0\cos(\alpha)i_0\cos(\alpha+\varphi)
+P = U_0\cos(\alpha)I_0\cos(\alpha+\varphi)
 \]
 
 Nous avons déjà évoqué cette question quand nous avions évoqué l'inégalité de Cauchy-Schwartz appliquée aux espaces fonctionnels. Nous avions trouvé que :
 
 \[
-p = \frac{\braket{u|i}}{\aleph_1}
+P = \frac{\braket{U|I}}{\aleph_1}
 \]
 
 \[
-p = \frac{1}{\aleph_1}\int_\mathbb{R} u\times i
+P = \frac{1}{\aleph_1}\int_\mathbb{R} U\times I
 \]
 
 Nous amènent à définir dans l'espace des grandeurs moyennes les puissances actives, réactives et apparentes :
 
-\[
+\[\boxed{
 \left\{\begin{matrix}
-S = \frac{||u||}{\aleph_1} \times \frac{||i||}{\aleph_1} \\
-P = \frac{\braket{u|i}}{\aleph_1} \\
+S = \frac{||U||}{\aleph_1} \times \frac{||I||}{\aleph_1} \\
+P = \frac{\braket{U|I}}{\aleph_1} \\
 Q = \sqrt{S^2-P^2}
 \end{matrix}\right.
-\]
+}\]
 
 La puissance active $P$ étant la seule travaillant sur le long terme.
 
 Nous allons maintenant voir ce que représente physiquement cette puissance réactive $Q$. Revenons à l'expression de la puissance instantanée :
 
 \[
-p = u_0\cos(\alpha)i_0\cos(\alpha+\varphi)
+p = U_0\cos(\alpha)I_0\cos(\alpha+\varphi)
 \]
 
 \[
-p = \frac{u_0i_0}{2}\left(\cos(\varphi)+\cos(2\alpha+\varphi)\right)
+p = \frac{U_0I_0}{2}\left(\cos(\varphi)+\cos(2\alpha+\varphi)\right)
 \]
 
 Il a suffit d'un bête théorème trigonométrique pour éclaircir le mystère.
@@ -5715,7 +5731,7 @@ La puissance instantanée comprend deux termes, le premier étant la puissance act
 La valeur efficace de cette puissance fluctente sera toujours donnée par :
 
 \[
-\frac{||f||}{\aleph_1} = \frac{u_0i_0}{2\sqrt{2}}
+\frac{||F||}{\aleph_1} = \frac{U_0I_0}{2\sqrt{2}}
 \]
 
 Qui ne dépend pas de $\varphi$, et est donc inévitable en régime monophasé, et correspond à un échange d'énergie toutes les demi-périodes entre la source et la charge. Au mieux (pour $\varphi=0$), le réseau et les installations devront-être surdimensionnés d'un facteur $1=\frac{1}{\sqrt{2}}$ pour ne pas être endommagées à cause de la contribution aux pertes joules de la puissance fluctente.
@@ -5723,21 +5739,21 @@ Qui ne dépend pas de $\varphi$, et est donc inévitable en régime monophasé, et c
 Tout ceci peut-être repris en notation complexe. Revenons à :
 
 \[
-p = \sqrt{2} \Re \left(\underline{U} e^{j\omega t}\right) \times \sqrt{2} \Re \left(\underline{I} e^{j\omega t}\right)
+P = \sqrt{2} \Re \left(\underline{U} e^{j\omega t}\right) \times \sqrt{2} \Re \left(\underline{I} e^{j\omega t}\right)
 \]
 
 Et écrivons les parties réelles sans utiliser de cosinus :
 
 \[
-p = \frac{1}{2}(\underline{U}e^{j\omega t}+\underline{U}^*e^{-j\omega t})(\underline{I}e^{j\omega t}+\underline{I}^*e^{-j\omega t})
+P = \frac{1}{2}(\underline{U}e^{j\omega t}+\underline{U}^*e^{-j\omega t})(\underline{I}e^{j\omega t}+\underline{I}^*e^{-j\omega t})
 \]
 
 \[
-p = \frac{1}{2}(\underline{U}\underline{I}e^{j2\omega t}+\underline{U}^*\underline{I}^*e^{-j2\omega t} + \underline{U}\underline{I}^* + \underline{U}^*\underline{I})
+P = \frac{1}{2}(\underline{U}\underline{I}e^{j2\omega t}+\underline{U}^*\underline{I}^*e^{-j2\omega t} + \underline{U}\underline{I}^* + \underline{U}^*\underline{I})
 \]
 
 \[
-p = \Re \left( \underline{U}\underline{I}^* \right) + \Re \left( \underline{U}\underline{I}e^{j2\omega t} \right)
+P = \Re \left( \underline{U}\underline{I}^* \right) + \Re \left( \underline{U}\underline{I}e^{j2\omega t} \right)
 \]
 
 Si l'on veut faire les choses jusqu'au bout, on ira jusqu'à distinguer $S = UI^*$ la représentation complexe de la puissance utile - qui ne pulse pas et transite continuement d'un organe vers un autre - et $S_f = \frac{UI}{\sqrt{2}}$ celle de la puissance fluctuente, pulsant à $2\omega$ et dont le module $|S_f| = \frac{|U||I|}{\sqrt{2}}$ est la valeur efficace.
@@ -5745,7 +5761,7 @@ Si l'on veut faire les choses jusqu'au bout, on ira jusqu'à distinguer $S = UI^*
 \textcolor{red}{(faire le lien avec la puissance réactive s'il y en a un)}
 
 \[
-Q = \frac{u_0i_0}{2}\sin(\varphi)
+Q = \frac{U_0I_0}{2}\sin(\varphi)
 \]
 
 \textcolor{red}{(faire le lien avec la transformée de Fourier)}
@@ -5778,11 +5794,11 @@ Cette représentation est relativement eronnée, car il serait faux de penser qu'u
 
 Le noeud central est appellé \emph{neutre}, et peut-être relié à un élément extérieur au tripôle (bien souvent à la Terre à travers un dipôle).
 
-Dans un souci de praticité, on définira les vecteurs $I_i$ et $V_i$ qui ont pour composante les différentes valeurs instantanées des grandeurs en présence, exactement de la même manière que nous l'avions fait pour introduire la matrice inductance. D'ailleurs, une charge triphasée peut-être définie par une \emph{matrice impédance} après considération des transformées de Fourier de $I_i$ et $V_i$.
+Dans un souci de praticité, on définira les vecteurs $I_i$ et $V_i$ qui ont pour composante les différentes valeurs instantanées des grandeurs en présence, exactement de la même manière que nous l'avions fait pour introduire la matrice inductance. D'ailleurs, une charge triphasée peut-être définie par une \emph{matrice impédance}.
 
 La manipulation de ces deux vecteurs n'est cependant pas toujours la plus pratique. C'est pourquoi fût inventée la \emph{transformation de Fortescue} qui associe à une grandeur triphasée réelle $G_i$ le complexe $G_d$ et le réel $G_h$ :
 
-\[
+\[\boxed{
 \left( \begin{matrix}
 G_d \\
 G_d^* \\
@@ -5800,7 +5816,7 @@ G_2 \\
 G_3
 \end{matrix} \right)
 = K_i^j G_j
-\]
+}\]
 
 Avec $a=e^{j\frac{2\pi}{3}}$ et $K_i^j =\frac{1}{\sqrt{3}}
 \left( \begin{matrix}
@@ -5840,27 +5856,6 @@ Reprenons notre charge en étoile, et intéressons-nous aux tensions entre phases 
 \shorthandon{:!}
 
 Laissons-nous convaincre que les lois des mailles s'écrivent :
-
-\[
-\left( \begin{matrix}
-U_{13} \\
-U_{21} \\
-U_{32}
-\end{matrix} \right)
-=
-\left( \begin{matrix}
-1 & 0 & -1 \\
--1 & 1 & 0 \\
-0 & -1 & 1
-\end{matrix} \right)
-\left( \begin{matrix}
-V_1 \\
-V_2 \\
-V_3
-\end{matrix} \right)
-\]
-
-En appliquant la transformation de Fortescue :
 
 \[
 \left( \begin{matrix}
@@ -6149,13 +6144,16 @@ Le noeud central est appellé \emph{neutre}, et n'est ici relié d'aucune façon à 
 I_1 + I_2 + I_3 = 0
 \]
 
-Et parce-que $Z_1 = Z_2 = Z_3$ \textcolor{red}{(pourquoi ?)} :
+Et si la source est \emph{équilibrée}, c'est à dire $Z_1 = Z_2 = Z_3$ :
 
 \[
 V_1 + V_2 + V_3 = 0
 \]
 
+On parle de \emph{régime équilibré} si cette relation est vérifiée (ce qui, en principe, présuppose l'équilibrage de la source en plus de celui de la charge).
+
 \textcolor{red}{(Démontrer que la composante homopolaire ne travaille pas)}
+
 
 \section{Magnétisme}
 
@@ -6195,7 +6193,7 @@ Q_n
 
 On appelle cette méthode ``principe des travaux virtuels'' car cela revient à effectuer des déplacements infinitésimaux (même si ces déplacements n'auront pas forcément lieu) pour regarder le travail engendré.
 
-Dans le cadre d'une machine électrique (terme employé pour désigner les convertisseurs électro-magnéto-mécaniques tels les moteurs), l'énergie s'écrit :
+Dans le cadre d'une machine électrique (terme employé pour désigner les convertisseurs électro-magnéto-mécaniques tels les moteurs), l'énergie s'écrit \textcolor{red}{(justifier)} :
 
 \[ 
 W = \int_0^\Phi i_i(\varphi) d\varphi^i
@@ -6442,7 +6440,7 @@ En posant $\gamma = \sqrt{(R+jL\omega)(G+jC\omega)}$ :
 
 Les solutions sont de la forme \textcolor{red}{(intervertion $V$ et $I$)} :
 
-\[
+\[\boxed{
 \left(\begin{matrix}
 \underline{V} \\
 \underline{I}
@@ -6453,7 +6451,7 @@ Les solutions sont de la forme \textcolor{red}{(intervertion $V$ et $I$)} :
 \underline{V} \\
 \underline{I}
 \end{matrix}\right)(0)
-\]
+}\]
 
 \textcolor{red}{(justifier les coefficients)}
 
@@ -6474,7 +6472,7 @@ Qu'on développe au second ordre, pour écarter les effets propagatifs :
 
 Pour une ligne de longueur $H$ petite devant la longueur d'onde, en posant $Z=(R+jL\omega)H$ et $Y=(G+jC\omega)H$ :
 
-\[
+\[\boxed{
 \left(\begin{matrix}
 \underline{V} \\
 \underline{I}
@@ -6485,7 +6483,7 @@ Pour une ligne de longueur $H$ petite devant la longueur d'onde, en posant $Z=(R
 \underline{V} \\
 \underline{I}
 \end{matrix}\right)(0)
-\]
+}\]
 
 \section{Dispositifs magnétiques}
 
@@ -6543,7 +6541,7 @@ Si ce raisonnement permet de très bien cerner ce qu'il advient dans un transform
 
 Pour aller plus loin, on peut utiliser la méthode des éléments finis dont la modélisation interne d'un transformateur est un des exercices les plus simples. On peut également adopter une attitude plus pédagogique et décomposer le circuit en réluctances, selon la géométrie du problême et les attentes qu'on sur le résultat pour prendre en compte les fuites.
 
-En ne conservant que l'hypothèse de la linéarité (ce qui revient à modéliser les pertes par saturation sans vraiment considérer le phénomène physique en tant que tel) toutes ces méthodes permettent d'établir la matrice impédance du transformateur, dont nous redonnons la définition :
+En ne conservant que l'hypothèse de la linéarité (ce qui revient à modéliser les pertes par saturation sans vraiment considérer le phénomène physique en tant que tel) toutes ces méthodes permettent d'établir la matrice inductance du transformateur, dont nous redonnons la définition :
 
 \[
 \left( \begin{matrix} \Phi_1 \\ \Phi_2 \end{matrix} \right) = 
@@ -6572,7 +6570,7 @@ La première chose qu'on est en droit d'exiger est un modèle électrique moins for
 \begin{tikzpicture}
   \draw	(0,0) to[L, l=$l_1$, i=$I_1$, *-] ++(4,0) node[shape=coordinate](A){} to[short, i=$I_0$] ++(0,-1) node[shape=coordinate](B){} to[L, l=$L_\mu$] ++(0,-2) -- ++(0,-1) node[shape=coordinate](C){} to[short, -*] ++(-4,0);
   \draw (C) to[short] ++(1,0) -- ++(2,2) -- ++(0.5,0) -- ++(2,-2) to[short, -*] ++(4,0);
-  \draw (A) to[short, i<=$mI_2$] ++(1,0) -- ++(2,-2) node[draw, fill=white, shape=circle, minimum size = 1cm](O){} ++(0.5,0) node[draw, fill=white, shape=circle, minimum size = 1cm](P){} -- ++(2,2) to[L, l=$l_2$, i<=$I_2$, -*] ++(4,0);
+  \draw (A) to[short, i<=$mI_2$] ++(1,0) -- ++(2,-2) node[draw, fill=white, shape=circle, minimum size = 1cm, label={[shift={(0.25,0.2)}]$m$}](O){} ++(0.5,0) node[draw, fill=white, shape=circle, minimum size = 1cm](P){} -- ++(2,2) to[L, l=$l_2$, i<=$I_2$, -*] ++(4,0);
 \end{tikzpicture}
 \end{center}
 \shorthandon{:!}
@@ -6595,14 +6593,14 @@ jl_1\omega\underline{I}_1 + jL_\mu\omega(\underline{I}_1 + m\underline{I}_2) \\
 jmL_\mu\omega(\underline{I}_1 + m\underline{I}_2) + jl_2\omega\underline{I}_2 \end{matrix} \right)
 \]
 
-\[
+\[\boxed{
 \left( \begin{matrix} \underline{V}_1 \\ \underline{V}_2 \end{matrix} \right) = 
 j\left( \begin{matrix}  
 l_1+L_\mu & mL_\mu \\
 mL_\mu & l_2+m^2L_\mu
 \end{matrix} \right)\omega
 \left( \begin{matrix} \underline{I}_1 \\ \underline{I}_2 \end{matrix} \right)
-\]
+}\]
 
 Nous avons fait apparaître la matrice inductance, permettant de passer d'un modèle à l'autre.
 
@@ -6618,7 +6616,7 @@ Cette description purement magnétique est cependant trop éloignée de la réalité.
   \draw	(0,0) to[R, l=$R_1$, i=$I_1$, *-] ++(2,0) to[L, l=$l_1$] ++(2,0) node[shape=coordinate](A){} to[short, i=$I_0$] ++(0,-1) node[shape=coordinate](B){} -- ++(-0.5,0) to[R, l=$R_f$] ++(0,-2) - - ++(0.5,0) -- ++(0,-1) node[shape=coordinate](C){} to[short, -*] ++(-4,0);
   \draw (B) -- ++(0.5,0) to[L, l=$L_\mu$] ++(0,-2) -- ++(-0.5,0);
   \draw (C) to[short] ++(1,0) -- ++(2,2) -- ++(0.5,0) -- ++(2,-2) to[short, -*] ++(4,0);
-  \draw (A) to[short, i<=$mI_2$] ++(1,0) -- ++(2,-2) node[draw, fill=white, shape=circle, minimum size = 1cm](O){} ++(0.5,0) node[draw, fill=white, shape=circle, minimum size = 1cm](P){} -- ++(2,2) to[R, l=$R_2$, i<=$I_2$] ++(2,0) to[L, l=$l_2$, -*] ++(2,0);
+  \draw (A) to[short, i<=$mI_2$] ++(1,0) -- ++(2,-2) node[draw, fill=white, shape=circle, minimum size = 1cm, label={[shift={(0.25,0.2)}]$m$}](O){} ++(0.5,0) node[draw, fill=white, shape=circle, minimum size = 1cm](P){} -- ++(2,2) to[R, l=$R_2$, i<=$I_2$] ++(2,0) to[L, l=$l_2$, -*] ++(2,0);
 \end{tikzpicture}
 \end{center}
 \shorthandon{:!}
@@ -6633,7 +6631,7 @@ La première chose à faire est de \emph{ramener le modèle du transformateur au pr
   \draw	(0,0) to[R, l=$R_1$, i=$I_1$, *-] ++(2,0) to[L, l=$l_1$] ++(2,0) node[shape=coordinate](A){} to[short, i=$I_0$] ++(0,-1) node[shape=coordinate](B){} -- ++(-0.5,0) to[R, l=$R_f$] ++(0,-2) - - ++(0.5,0) -- ++(0,-1) node[shape=coordinate](C){} to[short, -*] ++(-4,0);
   \draw (B) -- ++(0.5,0) to[L, l=$L_\mu$] ++(0,-2) -- ++(-0.5,0);
   \draw (C) to[short] ++(4,0) -- ++(2,2) -- ++(0.5,0) -- ++(2,-2) to[short, -*] ++(1,0);
-  \draw (A) to[R, l=$R'_2$, i<=$mI_2$] ++(2,0) to[L, l=$l'_2$] ++(2,0) -- ++(2,-2) node[draw, fill=white, shape=circle, minimum size = 1cm](O){} ++(0.5,0) node[draw, fill=white, shape=circle, minimum size = 1cm](P){} -- ++(2,2) to[short, i<=$I_2$, -*] ++(1,0);
+  \draw (A) to[R, l=$R'_2$, i<=$mI_2$] ++(2,0) to[L, l=$l'_2$] ++(2,0) -- ++(2,-2) node[draw, fill=white, shape=circle, minimum size = 1cm, label={[shift={(0.25,0.2)}]$m$}](O){} ++(0.5,0) node[draw, fill=white, shape=circle, minimum size = 1cm](P){} -- ++(2,2) to[short, i<=$I_2$, -*] ++(1,0);
 \end{tikzpicture}
 \end{center}
 \shorthandon{:!}
@@ -6837,7 +6835,7 @@ Ici, le seul degré de liberté est l'angle $\theta$ que fait le rotor avec le sta
 \vec{\Gamma} = -\frac{1}{2} I_i \frac{\partial L^{i}_{\; j}}{\partial \theta} I^j \vec{e_z}
 \]
 
-Les inductances propres ne varient pas avec $\theta$ \textcolor{red}{(uniquement pour un rotor lisse ?)} :
+Pour un \emph{rotor lisse}, les inductances propres ne varient pas avec $\theta$ \textcolor{red}{(Quid des rotors saillants ?)} :
 
 \[ 
 \vec{\Gamma} = -\frac{1}{2} I_i \frac{\partial}{\partial \theta}\left(\begin{matrix}
@@ -6854,7 +6852,7 @@ Qui se calcule en :
 
 L'hypothèse qui va être faite maintenant est propre à la machine à courant continu, et consiste à considérer les enroulements rotoriques comme suffisament rapprochés les uns des autres pour assimiler la dérivée de la mutuelle à sa valeur moyenne :
 
-\[ 
+\[
 \vec{\Gamma} = -\braket{\frac{\partial M}{\partial \theta}} I_e I_i \vec{e_z}
 \]
 
@@ -6922,15 +6920,13 @@ Enfin, l'\emph{induction rémanante} \textcolor{red}{(pas parlé avant)} intervien
 
 L'introduction de paires de pôles supplémentaires à l'inducteur bipolaire précédemment considéré se traduit très simplement dans la machine à courant continu par l'introduction d'une pulsation électrique $\omega = p\Omega$. Les équations de la machine deviennent :
 
-\[
+\[\boxed{
 E = -p\braket{\frac{\partial M}{\partial \theta}} I_e (\vec{\Omega} \cdot \vec{e_z})
-\]
+}\]
 
-\[ 
+\[\boxed{ 
 \vec{\Gamma} = -p\braket{\frac{\partial M}{\partial \theta}} I_e I_i \vec{e_z}
-\]
-
-Dans toute la suite nous ne considérerons de des machines à une paire de pôle ($p=1$), les relations précédentes étant directement transposables aux autres machines.
+}\]
 
 \textcolor{red}{(figure, éléments finis)}
 
@@ -7269,6 +7265,8 @@ Dans le domaine réel :
 
 Attention cependant à une chose : le courant $I_s$ introduit ici est l'amplitude des courants de phase, mais ce qu'on mesure est généralement leur valeur efficace qu'il faudra donc multiplier par $\sqrt{2}$. Pour un couplage triangle, une division par $\sqrt{3}$ interviendra également pour accéder aux courants de branches depuis les courants extérieurs.
 
+\textcolor{red}{(faux à partir de là)}
+
 Par conservation de la puissance active (on quitte le domaine complexe inapproprié aux considérations énergétiques) :
 
 \[
@@ -7383,7 +7381,7 @@ Les pertes joules sont évidemment modélisées par une résistance linéique :
 R = \frac{1}{\sigma a h_1}
 \]
 
-Qui correspond à $R_2$ quand on la multiplie par la longueur du rotor.
+Qui correspond à $R_2$ dans le modèle transformateur quand on la multiplie par la longueur du rotor.
 
 La magnétostatique est cependant un contexte d'étude inapproprié à la machine asynchrone. Essayons donc de trouver un résultat équivalent en magnétodynamique (prenant en compte la dépendance avec $\omega$, en négligeant les effets propagatifs).
 
@@ -7676,18 +7674,18 @@ On remarquera que le couple nécessitant un courant rotorique, la résistance $R_2
 
 Le glissement étant la grandeur centrale de la machine asynchrone, on écrira sa définition sous la forme :
 
-\[
+\[\boxed{
 \Omega = \frac{\omega_s}{p}(1-g)
-\]
+}\]
 
 Qui constitue notre première équation mécanique. La seconde sera plus difficile à établir :
 
 
 \textcolor{red}{(compléter)}
 
-\[
+\[\boxed{
 \Gamma = \frac{2\Gamma_{max}}{\frac{g}{g_{max}}+\frac{g_{max}}{g}}
-\]
+}\]
 
 Qui graphiquement a pour allure :
 
@@ -7722,7 +7720,7 @@ for i in range(0,len(g_coords)-1):
 \end{tikzpicture}
 \end{center}
 
-De la combinaison des deux équations précédentes résulte la \emph{caractéristique couple-vitesse} :
+De la combinaison des deux équations précédentes résulte la \emph{caractéristique couple-vitesse} \textcolor{red}{(expression)} :
 
 \begin{sagesilent}
 Gamma=var('Gamma');
@@ -7769,9 +7767,9 @@ Par ailleurs, le rendement d'une machine asynchrone est limité :
 
 \textcolor{red}{(compléter)}
 
-\[
+\[\boxed{
 \eta \leq 1-g
-\]
+}\]
 
 \section{Electronique pour le signal}
 
@@ -8118,6 +8116,8 @@ Le montage ainsi constitué est dit \emph{quasi-résonnant}. Il n'est cependant pa
 
 \subsubsection{Onduleur triphasé}
 
+\textcolor{red}{(introduire)}
+
 \shorthandoff{:!}
 \begin{center}
 \begin{tikzpicture}
@@ -8150,7 +8150,7 @@ Le montage ainsi constitué est dit \emph{quasi-résonnant}. Il n'est cependant pa
 
 Sur le même bras, on veillera toujours à ne pas fermer les deux interrupteurs (ce qui court-circuiterait la source de tension. On considérera également qu'au moins un des deux interrupteurs doit-être fermé, de façon à ce que le courant puisse circuler (indispensable dans le cas d'une charge inductive). En pratique, on met une diode en antiparallèle de chacun des interrupteurs.
 
-Les différents vecteurs commande des bras d'onduleur sont énumérées ci-dessous :
+Les différents vecteurs commande des bras d'onduleur sont énumérés ci-dessous :
 
 \[
 \left( \begin{matrix}
@@ -8186,7 +8186,7 @@ Les différents vecteurs commande des bras d'onduleur sont énumérées ci-dessous :
 \end{matrix} \right)
 \]
 
-Chacun étant associé à une valeurs possible pour $U_i$ (le vecteur nul peut-être obtenu de deux manières différentes :
+Chacun étant associé à une valeurs possible pour $U_i$ (le vecteur nul peut-être obtenu de deux manières différentes) :
 
 \[
 \left( \begin{matrix}
@@ -8218,7 +8218,7 @@ E \\ 0 \\ -E
 \end{matrix} \right)
 \]
 
-De composantes directes selon la transformée de fortescue :
+De composantes directes selon la transformée de Fortescue :
 
 \[
 0 , 
@@ -8344,7 +8344,7 @@ Ce montage est un redresseur, qui a vocation à assurer la conversion AC-DC. En f
 
 Ces deux montages n'en sont en fait qu'un unique, la seule différence étant l'environnement dans lequel on l'intègre.
 
-Ici, on suppose que les tensions à gauches sont celles d'un réseau électrique idéal, et donc tout à fait sinusoïdales. Les tensions entre phases s'écrivent :
+Ici, on suppose que les tensions à gauche sont celles d'un réseau électrique idéal, et donc tout à fait sinusoïdales. Les tensions entre phases s'écrivent :
 
 \[
 \left( \begin{matrix}
@@ -8359,6 +8359,8 @@ U_{32}
 \sin(\omega t + \frac{7\pi}{6})
 \end{matrix} \right)
 \]
+
+\textcolor{red}{(pourquoi sin ?)}
 
 Pour rappel, les phases initiales sont choisies de sorte que $V_1$ soit un sinus.
 
@@ -8498,47 +8500,47 @@ Soit un système macroscopique, constitué d'un ensemble de particules de masses $
 
 Soit $u$ la densité d'énergie volumique d'agitation dans un milieu et $\vec{\varphi}$ la densité de flux de puissance. La conservation de l'énergie s'écrit en l'absence de source :
 
-\[
+\[\boxed{
 \frac{\partial u}{\partial t} + \nabla \cdot \vec{\varphi} = 0
-\]
+}\]
 
-Dans un milieu, on introduira la \emph{capacité thermique à pression constante} $\rho_m c$ émanante des interaction entre particules, et qui donne une relation de proportionnalité entre la densité d'énergie locale d'agitation $u$ dans un milieu et la température en ce point :
+Dans un milieu, on introduira la \emph{capacité thermique à pression constante} $c$ émanante des interaction entre particules, et qui donne une relation de proportionnalité entre la densité d'énergie locale d'agitation $u$ dans un milieu et la température en ce point :
 
-\[
-u = \rho_m c T
-\]
+\[\boxed{
+u = \rho c T
+}\]
 
-La présence de la masse volumique $\rho_m$ se justifie par des raisons historiques \textcolor{red}{(pourquoi proportionnalité ?)}.
+La présence de la masse volumique $\rho$ se justifie par des raisons historiques \textcolor{red}{(pourquoi proportionnalité ?)}.
 
 La conservation de l'énergie se réecrit donc :
 
-\[
-\rho_m c_P\frac{\partial T}{\partial t} + \nabla \cdot \vec{\varphi} = 0
-\]
+\[\boxed{
+\rho c\frac{\partial T}{\partial t} + \nabla \cdot \vec{\varphi} = 0
+}\]
 
-On a parfois plusieurs \emph{capacité thermique} pour un même milieu, suivant les contraintes thermodynamiques qu'on se donne (volume constant, pression constante, etc...). Pour toute la suite on considèrera un milieu à pression constante et donc son $c_P$.
+On a parfois plusieurs \emph{capacités thermiques} pour un même milieu, suivant les contraintes thermodynamiques qu'on se donne (volume constant, pression constante, etc...). Pour toute la suite on considèrera un milieu à pression constante et donc son $c_P$ \textcolor{red}{(pourquoi ?)}.
 
 \section{Conduction}
 
 Au sein d'un milieu continu homogène, un champ de température $T({x},t_0)$ sera la source d'une diffusion de l'énergie $\vec{\varphi}$ selon :
 
-\[
+\[\boxed{
 \vec{\varphi} = -\lambda \nabla T
-\]
+}\]
 
 Ce résultat est issu de la théorie du mouvement brownien appliquée au phonon.
 
 Le couplage de ces deux équations permet d'établir l'équation de la chaleur :
 
 \[
-\rho_m c_P\frac{\partial T}{\partial t} -\lambda \nabla \cdot \nabla T = 0
+\rho c\frac{\partial T}{\partial t} -\lambda \nabla \cdot \nabla T = 0
 \]
 
-\[
-\rho_m c_P\frac{\partial T}{\partial t} -\lambda \Delta T = 0
-\]
+\[\boxed{
+\rho c\frac{\partial T}{\partial t} -\lambda \Delta T = 0
+}\]
 
-En présence de source, le terme de droite est non-nul.
+En présence de source (dissipation par effet joule notamment), le terme de droite est non-nul.
 
 \section{Convection}
 
@@ -8548,11 +8550,11 @@ La conduction n'est pas prépondérante dans les lieux où il y a réellement déplac
 
 Le modèle usuel pour modéliser la convection consiste à considérer une paroi de température $T_p$, et à dire que cette paroi perd de l'énergie par convection vers le fluide, de sorte que la composante normale de son flux s'écrive :
 
-\[
+\[\boxed{
 \vec{\varphi} \cdot \vec{n} = h(T_p-T_{\infty})
-\]
+}\]
 
-Avec $h$ le coefficient de convection. Les autres composantes du flux peuvent-êtres non-nuls, mais relèvent de la conduction.
+Avec $h$ le coefficient de convection. Les autres composantes du flux peuvent-êtres non-nulles, mais relèvent de la conduction.
 
 \section{Dipôles thermiques}
 
@@ -8571,25 +8573,23 @@ On a donc une densité de flux $\varphi$ qui dérive d'un potentiel du fait que :
 \vec{\varphi} = -\lambda \nabla T
 \]
 
-Ces équations correspondent très exactement à celles de l'électrocinétique dans un milieu résistif, que nous développerons ultérieurement. Cette analogie permet d'introduire la notion de résistance thermique.
+Ces équations correspondent très exactement à celles de l'électrocinétique dans un milieu résistif, développées précédemment. Cette analogie permet d'introduire la notion de \emph{résistance thermique}.
 
-En toute généralité, tous les résultats que nous verrons pour les résistances électriques pourront s'appliquer aux résistances thermiques, puisque les formalismes sont identiques. Les courants deviendront les flux, et les potentiels les températures.
+En toute généralité, tous les résultats que nous avons vu pour les résistances électriques pourront s'appliquer aux résistances thermiques, puisque les formalismes sont identiques. Les courants deviendront les flux, et les potentiels les températures.
 
 Soit un corps n'échangeant de l'énergie avec l'extérieur qu'à travers deux surfaces particulières à températures respectives $T_1$ et $T_2$ homogènes.
 
 Ce corps est un dipôle thermique, auquel on pourra attribuer une résistance thermique $R$ de sorte que :
 
-\[
+\[\boxed{
 T_2 - T_1 = R \Phi
-\]
+}\]
 
 \textcolor{red}{(Trouver une expression générale de $R$)}
 
-Deux milieux peuvent se combiner en série ou en parallèle de la même façon que pour les résistances électriques. Afin de ne pas disperser les informations dans tout le document, les expressions des circuits résistifs usuels seront largement présentées dans la partie sur l'électrocinétique.
+Deux milieux peuvent se combiner en série ou en parallèle de la même façon que pour les résistances électriques. A l'interface entre deux milieux, on trouve bien souvent un contact imparfait qu'on pourra modéliser par une résistance thermique supplémentaire mise en série avec les autres.
 
-A l'interface entre deux milieux, on trouve bien souvent un contact imparfait qu'on pourra modéliser par une résistance thermique supplémentaire.
-
-Toujours en régime permanant, l'intégrale de l'expression du transfert thermique convectif sur une paroi de surface $S$ prend naturellement la forme d'une loi d'Ohm :
+Toujours en régime permanent, l'intégrale de l'expression du transfert thermique convectif sur une paroi de surface $S$ prend naturellement la forme d'une loi d'Ohm :
 
 \[
 T_2-T_1 = \frac{\Phi}{hS}
@@ -8599,9 +8599,9 @@ Les résistances thermiques de conduction et de convection peuvent cohabiter car 
 
 On défini le \emph{Nombre de Biot} comme :
 
-\[
+\[\boxed{
 B = \frac{R_{cond}}{R_{conv}}
-\]
+}\]
 
 Si ce nombre est très éloigné de 1 on peut négliger l'une ou l'autre des différences de températures, et ne considérer qu'un seul type de transfert thermique.
 
@@ -8613,9 +8613,9 @@ Si ce nombre est très éloigné de 1 on peut négliger l'une ou l'autre des différe
 
 Il existe un troisième mode d'échange thermique qui caractérise le transfert d'énergie entre deux corps par véhiculé par un rayonnement électromagnétique. En effet, un résultat de mécanique quantique (le tout premier qui ait été découvert, en fait) est qu'un \emph{corps noir} à la température $T$ émet une densité surfacique de puissance sous la forme de photons de longueur d'onde $\lambda$ :
 
-\[
+\[\boxed{
 \varphi^0(\lambda, T) = \frac{2 \pi h c^2}{\lambda^5} \frac{1}{e^\frac{hc}{\lambda k_B T} - 1}
-\]
+}\]
 
 Dans le cadre du rayonnement, on rebaptise $\varphi$ l'\emph{émittance} et on la note usuellement $\mathcal{M}$. Le $0$ en exposant sert à indiquer qu'on se réfère au spectre du corps noir ; un corps noir étant un objet physique qui ne réfléchirait ni ne transmettrait la lumière d'aucune façon.
 
@@ -8706,17 +8706,17 @@ Sagemath (qui est évidemment un outil ridiculement puissant pour résoudre une éq
 \lambda_m T \sim \frac{hc}{4,965 k_B}
 \]
 
-\[
+\[\boxed{
 \lambda_m T \sim 2889 K \mu m
-\]
+}\]
 
 \subsubsection{Loi de Stefan-Boltzmann}
 
 On défini l'émittance totale en toute généralité par :
 
-\[
+\[\boxed{
 \mathcal{M} (T) = \int_0^\infty \mathcal{M} (\lambda, T) \; d\lambda
-\]
+}\]
 
 Qui n'est bien entendu autre que la puissance émise. Dans le cas d'un corps noir :
 
@@ -8732,25 +8732,25 @@ Que Sagemath calcule comme :
 
 Connue comme la \emph{loi de Stefan-Boltzmann} :
 
-\[
+\[\boxed{
 \mathcal{M}^0 (T) = \sigma T^4
-\]
+}\]
 
 Avec $\sigma = \frac{2 \pi ^5 k_B^4}{15 h^3 c^2} \sim 5.67 \; 10^{-8} W.m^{-2}.K^{-4}$ la constante de Stefan-Boltzmann.
 
 La démonstration est laborieuse, mais on peut ajouter que $95\%$ de la puissance émise l'est entre $\frac{\lambda_m}{2}$ et $5\lambda_m$ :
 
-\[
+\[\boxed{
 F_{\frac{\lambda_{max}}{2}T \rightarrow 5\lambda_{max}T} = \frac{\int_\frac{\lambda_m}{2}^{5\lambda_{max}} \mathcal{M}^0 (\lambda, T) \; d\lambda}{\sigma T^4} = 0.95
-\]
+}\]
 
 \subsubsection{Absorption}
 
 Pour achever cette discussion sur le corps noir, on précisera que celui-ci se comporte de façon tout à fait symétrique pour ce qui est de son émittance et de son absorbance. En effet, si on l'expose à un rayonnement de densité de flux monochromatique $\mathcal{H}(\lambda)$, le corps noir absorbera toute la puissance contenue dans le flux laquelle vaudra :
 
-\[
+\[\boxed{
 \alpha\mathcal{H} = \mathcal{H} = \int_0^\infty \mathcal{H}(\lambda) \; d\lambda
-\]
+}\]
 
 A l'équilibre thermique, on aura donc :
 
@@ -8774,15 +8774,15 @@ L'idée étant de déterminer la densité de flux monochromatique $\mathcal{H}_i(\la
 
 Autrement dit, on cherchera à remplir le tableau $f_i^j$ des \emph{facteurs de forme} émanant des dispositions géométriques des surface, de sorte qu'on puisse écrire :
 
-\[
+\[\boxed{
 \mathcal{H}_i = f_i^j \mathcal{M}_j
-\]
+}\]
 
 Pour ce faire, on usera du modèle de dépendance angulaire le plus simple et le plus commun : celui de la source \emph{Lambertienne} ; également qualifiée d'\emph{orthotrope}.
 
 \textcolor{red}{(figure)}
 
-L'introduction de considérations géométriques dans le rayonnement commence par dire qu'on identifie chaque point de l'espace dans un système de coordonnées sphériques. Ce système de coordonnées est un peu particulier car - comme nous l'avons vu \textcolor{red}{(pas fait)} - sa métrique est telle que son angle solide élémentaire $d\Omega$ s'écrive :
+L'introduction de considérations géométriques dans le rayonnement commence par dire qu'on localise chaque point de l'espace dans un système de coordonnées sphériques. Ce système de coordonnées est un peu particulier car - comme nous l'avons vu \textcolor{red}{(pas fait)} - sa métrique est telle que son angle solide élémentaire $d\Omega$ s'écrive :
 
 \[
 d\Omega = \sin(\theta)\;d\theta \; d\phi
@@ -8796,17 +8796,17 @@ d\mathcal{M}(\theta,\phi,\lambda,T) = f(\lambda,T,\theta,\phi) \; d\Omega
 
 Une surface lambertienne est définie par sa relation particulière :
 
-\[
+\[\boxed{
 d\mathcal{M}(\theta,\phi,\lambda,T) = L(\lambda,T)\cos(\theta) \; d\Omega
-\]
+}\]
 
-Pour comprendre la simplicité qu'apporte l'étude de surfaces lambertiennes à d'autres surfaces, il nous faut introduire une nouvelle grandeur ; la luminance, ayant pour raison d'être le calcul du flux reçu par une autre surface du fait de l'émittance de $dS$ :
+Pour comprendre la simplicité qu'apporte l'étude de surfaces lambertiennes par rapport à d'autres surfaces, il nous faut introduire une nouvelle grandeur ; la luminance, ayant pour raison d'être le calcul du flux reçu par une autre surface du fait de l'émittance de $dS$ :
 
 \textcolor{red}{(figure)}
 
-\[
+\[\boxed{
 \mathcal{L}(\theta,\phi,\lambda,T) = r^2\frac{d^2\Phi_{S \rightarrow S'}}{\vec{dS}\cdot \vec{dS'}}(\theta,\phi,\lambda,T)
-\]
+}\]
 
 Qui est homogène à une densité de flux, tout comme l'émittance. Le produit scalaire se calcul simplement comme :
 
@@ -8866,9 +8866,9 @@ En se souvenant de la forme que donne la métrique cylindrique à $d\Omega$, et en
 \mathcal{M}(\lambda,T) = 2\pi L(\lambda,T) \frac{\cos(0)-\cos(\pi)}{4}
 \]
 
-\[
+\[\boxed{
 \mathcal{M}(\lambda,T) = \pi L(\lambda,T)
-\]
+}\]
 
 Connue comme la \emph{loi de Lambert}.
 
@@ -8888,17 +8888,17 @@ Une première propriété est que par défition de l'émittance :
 \mathcal{M}_i = f_i^j \mathcal{M}_i
 \]
 
-\textcolor{red}{(wtf les notations)}
+\textcolor{red}{(wtf les notations, à revoir)}
 
-\[
+\[\boxed{
 \forall j, \; \sum_i f_i^j = 1
-\]
+}\]
 
 Une seconde est qu'à l'équilibre thermique, on aura :
 
-\[
+\[\boxed{
 \forall (i,j), \; S_i f_i^j = S_j f_j^i
-\]
+}\]
 
 \subsection{Surfaces réelles}
 
@@ -8908,9 +8908,9 @@ Le modèle du corps noir ne s'applique pas aux surfaces réelles, où les imperfect
 
 En particulier, les milieux peuvent-être partiellement transparents et réflechissants. Pour formaliser ce comportement, on intruit l'\emph{émissivité monochromatique} $\epsilon(\lambda)$ supposée indépendante de la température et qui vient corriger le spectre du corps noir de sorte que :
 
-\[
+\[\boxed{
 \mathcal{M}(\lambda, T) = \epsilon(\lambda) \mathcal{M}^0 (\lambda, T)
-\]
+}\]
 
 Avec $\mathcal{M}^0$ la densité de flux du corps noir, préalablement présentée.
 
@@ -8934,45 +8934,45 @@ L'émissivité monochromatique permet de définir l'\emph{émissivité totale} $\epsi
 
 L'absorbance est donnée par :
 
-\[
+\[\boxed{
 \alpha(\lambda) = \epsilon(\lambda)
-\]
+}\]
 
 \textcolor{red}{(démonstration, cf loi de Kirchhoff)}
 
 Et l'absorbance totale :
 
-\[
+\[\boxed{
 \alpha = \frac{\int_0^\infty \alpha(\lambda) \mathcal{H} (\lambda, T) \; d\lambda}{\mathcal{H}} = \frac{\int_0^\infty \epsilon(\lambda) \mathcal{H} (\lambda, T) \; d\lambda}{\mathcal{H}}
-\]
+}\]
 
-On notera que pour un corps non-gris, absorbance et émissivité totales ne sont plus nécessairement égales
+On notera que pour un corps non-gris, absorbance et émissivité totales ne sont plus nécessairement égales puisque le spectre du flux incident n'est pas nécessairement celui du rayonnement de corps noir \textcolor{red}{(vérifier l'argument)}.
 
 \subsubsection{Méthode des radiosités}
 
 Soit $\mathcal{H}(\lambda)$ la densité de flux monochromatique reçue par une surface, alors la conservation de l'énergie se traduit par une relation entre $\alpha(\lambda)$ l'absorbance, $\rho(\lambda)$ la reflexivité et $\tau(\lambda)$ la transparence :
 
-\[
+\[\boxed{
 \alpha(\lambda) \mathcal{H}(\lambda) + \rho(\lambda) \mathcal{H}(\lambda) + \tau(\lambda) \mathcal{H}(\lambda) = \mathcal{H}(\lambda)
-\]
+}\]
 
-\[
+\[\boxed{
 \alpha(\lambda) + \rho(\lambda) + \tau(\lambda) = 1
-\]
+}\]
 
 Pour un corps opaque par exemple, on aura $\rho(\lambda) = 1-\alpha(\lambda)$.
 
 On défini maintenant la \emph{radiosité} comme étant la grandeure représentative du flux quittant le corps, qui n'est autre que la somme de l'émittance et du flux réfléchi :
 
-\[
+\[\boxed{
 \mathcal{R}(\lambda,T) = \mathcal{M}(\lambda,T)+\rho(\lambda)\mathcal{H}(\lambda)
-\]
+}\]
 
 C'est ainsi la radiosité qui apparaîtra dans la relation des facteurs de forme pour une surface réelle :
 
-\[
+\[\boxed{
 \mathcal{H}_i = f_i^j \mathcal{R}_j
-\]
+}\]
 
 \section{Thermique appliquée}
 
@@ -9086,13 +9086,13 @@ R_c = \frac{T_0-T_1}{\Phi}
 R_c = \frac{\ln\left(\frac{r_2}{r_1}\right)}{2\pi \lambda}
 \]
 
-Un raisonnement en tous points semblable permet de déterminer $R_i$, que nous supposerons donc connu pour la suite.
+Ce raisonnement s'applique également à la détermination de $R_i$, que nous supposerons donc connu pour la suite.
 
 \textcolor{red}{(Discuter des résistances convectives)}
 
 Le modèle $2D$ qui vient d'être développé en régime permanent est transposable en $3D$ à un échangeur de chaleur linéaire dans lequel les fluides ne s'écouleraient pas ; ce qui a un intéret très limité.
 
-Pour prendre en compte l'écoulement des fluides, il va être nécessaire de développer un modèle transitoire. Cela peut sembler inapproprié dans la mesure où l'on devine que les variations de température sont spatiales et non temporelles, mais cela revient à suivre une tranche de fluide pendant son trajet.
+Pour prendre en compte l'écoulement des fluides, il va être nécessaire de développer un modèle transitoire. Cela peut sembler inapproprié dans la mesure où l'on devine que les variations de température sont spatiales et non temporelles, mais l'idée consiste à suivre une tranche de fluide pendant son trajet.
 
 Sur une tranche de l'échangeur d'épaisseur $dz$, on aura donc le bilan de puissance :
 
@@ -9242,7 +9242,7 @@ Et la solution devient :
 T(x) = (T_0-T_{\infty}) \left( \cosh \left(\sqrt{\frac{hl}{\lambda S}}x \right) - \coth \left(\sqrt{\frac{hl}{\lambda S}}L \right) \sinh \left(\sqrt{\frac{hl}{\lambda S}}x \right) \right) + T_{\infty}
 \]
 
-Le flux étant conservatif, il suffit de le calculer en $x = 0$ :
+Le flux dissipé se calcule en $x = 0$ :
 
 \[
 \Phi = S\varphi
@@ -9307,7 +9307,7 @@ L'isolation de la surface latérale permet d'approximer le problême comme mono-di
 L'impulsion initiale contient une énergie $Q$ qui va venir immédiatement prendre la forme d'une augmentation de température dans la couche infinitésimale de la surface exposée :
 
 \[
-T(0,0) - T_\infty = \frac{Q}{\rho c_P} 
+T(0,0) - T_\infty = \frac{Q}{\rho c} 
 \]
 
 Toutes les grandeurs étant exprimées de façon mono-dimensionnelles.
@@ -9322,7 +9322,7 @@ Une fois ce second membre sur condition de Neumann levée le problême devient :
 \end{matrix} \right.
 \]
 
-La condition de Neumann étant sans second membre, on peut utiliser la méthode de séparation des variables . Ainsi, on postule que $T$ est le produit d'une fonction temporelle par une fonction spatiale :
+La condition de Neumann étant sans second membre, on peut utiliser la méthode de séparation des variables. Ainsi, on postule que $T$ est le produit d'une fonction temporelle par une fonction spatiale :
 
 \[ 
 T(x,t) = \Gamma(t)\Psi(x)
@@ -9490,9 +9490,9 @@ Dans toute notre discussion, on considèrera que le terme d'\emph{équilibre therm
 
 Un résultat de la physique quantique - dans l'approximation classique et à l'équilibre thermodynamique - est donné par la \emph{statistique de Fermi-Dirac} :
 
-\[
+\[\boxed{
 \mathbb{P}(E)\;dE = \frac{1}{e^{\frac{ E - E_f }{ k_{B} T }} + 1 }
-\]
+}\]
 
 Qui décrit la distribution des niveaux d'énergie des électrons dans un semi-conducteur à une température $T$. $E_f$ est l'\emph{énergie de Fermi} du matériau, celle à laquelle se regroupent tous les électrons à $T=0K$.
 
@@ -9502,9 +9502,9 @@ Un autre résultat de la mécanique quantique est que dans un semi-conducteur, un 
 
 Leur densité volumique dans un semi-conducteur est donnée par :
 
-\[
+\[\boxed{
 n_e = \int_{E_c}^\infty g(E) \mathbb{P}(E) dE
-\]
+}\]
 
 Avec $g(E)$ la densité volumique d'électrons à l'énergie $E$, à laquelle la physique quantique attribue une dépendance en $\sqrt{E}$. On posera donc :
 
@@ -9554,13 +9554,13 @@ Avec $E_v$ la borne supérieure de la bande de Valence.
 
 Le résultat important est le suivant, et prend le nom de \emph{loi d'action de masse}. Quelque soit l'énergie de Fermi du semi-conducteur, qu'il soit \emph{dopé} ou non, à l'équilibre thermodynamique (condition nécessaire pour que la statistique de Fermi-Dirac s'applique) on aura :
 
-\[
+\[\boxed{
 n_e n_h =  ABe^{-\frac{Ec-E_v}{k_{B}T}}
-\]
+}\]
 
 \subsection{Régime quasi-statique}
 
-Hors équilibre thermodynamique, la loi d'action de masse est prise en défaut. Les transitoires dans les semi-conducteurs sont gérés par le modèle de Drude présenté dans la section sur la magnétodynamique \textcolor{red}{(vraiment ? pas fait)}.
+Hors équilibre thermodynamique, la loi d'action de masse est prise en défaut. Les transitoires dans les semi-conducteurs sont gérés par le modèle de Drude présenté dans la section sur la magnétodynamique \textcolor{red}{(fait mais Drude ?)}.
 
 Cette section est donc dédiée à sa version semi-conductrice.
 
@@ -9591,12 +9591,12 @@ Celle des électrons étant plus importante que celle des trous dans les matériaux
 
 En outre, dans le matériau lui-même la température est source de diffusion. Les expressions prenant en compte celle-ci deviennent :
 
-\[
+\[\boxed{
 \left\{\begin{matrix}
 \vec{j_h} = \sigma_h \vec{E} - q_+ D_h \nabla n_h\\
 \vec{j_e} = \sigma_e \vec{E} + q_+ D_e \nabla n_e
 \end{matrix}\right.
-\]
+}\]
 
 A noter que la question du signe peut se poser au passage du courant au sens de la thermique au courant au sens de l'électricité. Les expressions ci-dessus sont électriques, et les électrons se déplacent dans le sens opposé à celui pointé par $\vec{j_e}$ du fait de leur charge négative.
 
@@ -9608,11 +9608,11 @@ Le $\vec{j}$ résultant s'écrira donc :
 
 En introduisante les densités de charge partielle :
 
-\[
+\[\boxed{
 \vec{j} = (\sigma_h + \sigma_e) \vec{E} - D_h \nabla \rho_h - D_e \nabla \rho_e + \frac{\partial \vec{D}}{\partial t}
-\]
+}\]
 
-Le terme propagatif n'est pas à négliger pour qui s'intéresse à la conception des semi-conducteurs \textcolor{red}{(mais doit-il apparaître explicitement dans $\vec{j}$ ?)}, car il est à l'origine de tout un pan de la discipline ayant trait à la compatibilité électromagnétique qui théorise et tente de proposer des solutions pour contenir les perturbations électromagnétiques en électronique de puissance.
+Le terme propagatif n'est pas à négliger pour qui s'intéresse à la conception des semi-conducteurs \textcolor{red}{(mais doit-il apparaître explicitement dans $\vec{j}$ ? Probablement pas)}, car il est à l'origine de tout un pan de la discipline ayant trait à la compatibilité électromagnétique qui théorise et tente de proposer des solutions pour contenir les perturbations électromagnétiques en électronique de puissance.
 
 Nous le négligerons néanmoins pour le moment.
 
@@ -9630,6 +9630,8 @@ Mais envisager les strictes analogues de cette équation pour les électrons et le
 \frac{\partial \rho_e}{\partial t} + \nabla \cdot \vec{j_e} + q_+ u_e = 0
 \end{matrix}\right.
 \]
+
+\textcolor{red}{(cf. version papier de janvier 2017)}
 
 Pour les régions désertes ($n_h = n_e = 0$), les seules causes de recombinaison-dissociation sont :
 
@@ -9659,9 +9661,9 @@ Evidemment, l'étape suivante est de mettre en place des pseudo-équations de Four
 
 En temps normal, un semi-conducteur est un réseau cristallin d'un seul atome. On parle de \emph{semi-conducteur intrinsèque}. Il y a alors la même densité d'électrons libres que de trous, et :
 
-\[
+\[\boxed{
 n_e = n_h =  \sqrt{AB}e^{-\frac{Ec-E_v}{2k_{B}T}}
-\]
+}\]
 
 Il faut savoir que dans cette situation et dans la plupart des semi-conducteurs - le Silicium en premier lieu - le \emph{gap} d'énergie $Ec-E_v$ est si grand que le matériau a le comportement d'un isolant à température ambiante.
 
@@ -9671,23 +9673,27 @@ Cette altération va amener à un déséquilibre dans le comportement électrique du 
 
 Si on appelle $N = N_p - N_n$ la densité volumique algébrique de protons excédentaires (négative en cas de défaut de protons), l'électroneutralité (seulement en l'absence de champ électrique et pour un dopage homogène) s'écrira :
 
-\[
+\[\boxed{
 n_e - n_h = N
-\]
+}\]
+
+\textcolor{red}{(expliquer)}
 
 Qui revient simplement à dire qu'un ion dopé - bien qu'ayant perdu un électron - n'est pas un trou dans le contexte du réseau cristallin puisqu'il s'y intègre parfaitement du point de vue électronique.
 
 La relation $n_e = n_h$ n'est donc plus vraie dans un semi-conducteur extrinsèque (dopé), mais la loi d'action de masse le reste néanmoins à l'équilibre thermodynamique. Si on désigne par $n_i = \sqrt{AB}e^{-\frac{Ec-E_v}{2k_{B}T}}$ la \emph{concentration intrinsèque} (celle qu'auraient chacun des porteurs s'il n'était pas dopé), on écrira :
 
-\[
+\[\boxed{
 n_e n_h = n_i^2
-\]
+}\]
 
 En fait, le \emph{potentiel thermodynamique} qui apparaissait tout à l'heure dans les formules \textcolor{red}{($\mu$ ou $\psi$ ?)} est relié à $N$ \textcolor{red}{(démonstration ? lien avec les niveaux de fermi)} par :
 
-\[
+\[\boxed{
 \psi=\frac{kT}{q_+}\asinh \frac{N}{2n_i}
-\]
+}\]
+
+\textcolor{red}{($E_f$ ?)}
 
 Avec $q_+$ la charge du proton. Il est positif pour un dopage $N$ et négatif pour $P$ ; et nul pour un semi-conducteur intrinsèque.
 
@@ -9702,12 +9708,12 @@ n_e^2-Nn_e-n_i^2 = 0
 
 Dont les racines sont :
 
-\[
+\[\boxed{
 \left\{\begin{matrix}
 n_h = \frac{N+\sqrt{N^2+4n_i^2}}{2} \\
 n_e = \frac{-N+\sqrt{N^2+4n_i^2}}{2}
 \end{matrix}\right.
-\]
+}\]
 
 Si le dopage est suffisament \emph{fort} et si l'on désigne par $n_M$ et $n_m$ les concentrations des \emph{porteurs majoritaire} ($n_e$ pour un dopage $N$ et $n_p$ pour un dopage $P$) et \emph{minoritaires}, on peut négliger $n_m$ devant $n_M$ et l'électronégativité devient :
 
@@ -9753,12 +9759,12 @@ n_m = \frac{n_i^2}{n_M}
 
 La première ligne est une tautologie, et permet simplement de vérifier le cohérence de ce qui précède, tandis la seconde constitue un résultat important sur $n_m$ approximativement valable uniquement à l'équilibre et pour un semi-conducteur fortement dopé, puisqu'on en déduit d'après notre hypothèse initiale :
 
-\[
+\[\boxed{
 \left\{\begin{matrix}
 n_M = N \\
 n_m = \frac{n_i^2}{N}
 \end{matrix}\right.
-\]
+}\]
 
 \subsubsection{Jonction PN à l'équilibre thermodynamique}
 
@@ -9800,7 +9806,7 @@ Dont on extrait :
 \vec{E} = \frac{q_+ D}{\sigma} \nabla n_e
 \]
 
-Mais il faut savoir que la conductivité a une dépendance linéaire avec $n$ \textcolor{red}{(pourquoi ?)}. En introduisant la \emph{mobilité} $\mu = \frac{\sigma}{q_+ n}$ \textcolor{red}{(quid de la relation d'Einstein ?)} :
+Mais il faut savoir que la conductivité a une dépendance linéaire avec $n$ \textcolor{red}{(pourquoi ?)}. En introduisant la \emph{mobilité} $\mu = \frac{\sigma}{q_+ n}$ \textcolor{red}{(quid de la relation d'Einstein ? Expliquer)} :
 
 \[
 \vec{E} = \frac{D}{\mu} \frac{\nabla n_e}{n_e}
@@ -9820,9 +9826,9 @@ U = \frac{D}{\mu} \ln\frac{N_n}{\frac{n_i^2}{N_p}}
 
 Le terme au numérateur étant la concentration en porteurs majoritaires dans la zone $N$, et le dénominateur celle des porteurs minoritaires dans la zone $P$. Finalement :
 
-\[
+\[\boxed{
 U = \frac{D}{\mu} \ln\frac{N_nN_p}{n_i^2}
-\]
+}\]
 
 \textcolor{red}{(faire le lien avec la constance de l'énergie de Fermi et l'homogénéité de l'énergie à l'équilibre thermodynamique)}
 
@@ -9881,9 +9887,9 @@ Nous allons néanmoins continuer un peu de manipuler la physique sur l'exemple de
 
 En passant simplement le second membre à gauche, toute équation peut-être ramenée à une équation de la forme :
 
-\[
+\[\boxed{
 f(x) = 0
-\]
+}\]
 
 Le problême de cette section étant la recherche des valeurs de $x$ qui satisfont - si elles existent - cette équation.
 
@@ -9931,9 +9937,9 @@ On supposera la façon $t_i$ dont sont répartis les $n$ points $u_i$ de la foncti
 
 On montre que le polynôme :
 
-\[
+\[\boxed{
 L : x \rightarrow \sum_{i=0}^n u_i \left( \prod_{j=0, i\neq j}^n\frac{x-t_j}{t_i-t_j} \right)
-\]
+}\]
 
 Est le seul polynôme de degré $\deg L \leq n$ qui passe par tous les points $(t_k, u_k)$.
 
@@ -9959,18 +9965,18 @@ L'unicité se démontre par des considérations mathématiques sur les polynômes, pa
 
 L'expression générale de $L$ a cependant ceci d'inconfortable qu'elle n'est pas définie récursivement, et se prête ainsi mal à une implémentation algorithmique flexible. On lui trouve néanmoins une autre forme (dite \emph{de Newton}) plus adaptée au calcul numérique :
 
-\[
+\[\boxed{
 L : x \rightarrow \sum_{i=0}^n d^0 u_i \left( \prod_{j=0}^{i-1}(x-t_j) \right)
-\]
+}\]
 
 Avec $d^i u_j$ une notation adoptée pour désigner la suite bidimensionnelle des \emph{différences divisées}, initialisée sur sa diagonale et défini récursivement par :
 
-\[
+\[\boxed{
 \left\{\begin{matrix}
 d^i u_i = u_i \\
 d^k u_i = \frac{d^{k+1} u_i - d^k u_{i-1}}{t_{i}-t_{k}}
 \end{matrix}\right.
-\]
+}\]
 
 La démonstration de l'égalité entre ces deux formes se fait par récurrence :
 
@@ -10013,24 +10019,24 @@ La démonstration de l'égalité entre ces deux formes se fait par récurrence :
 
 Dans le cas où le maillage est uniforme (les points sont équirépartis), l'expression de la différence divisée devient :
 
-\[
+\[\boxed{
 d^k u_i = \frac{d^{k+1} u_i - d^k u_{i-1}}{T_e(i-k)}
-\]
+}\]
 
 Avec $T_e$ le \emph{pas} entre deux valeurs de $t$. C'est alors qu'il devient pertinent d'introduire la \emph{différence finie} :
 
-\[
+\[\boxed{
 \left\{\begin{matrix}
 \Delta^0 u_i = u_i \\
 \Delta^k u_i = \Delta^{k-1} u_{i+1} - \Delta^{k-1} u_{i}
 \end{matrix}\right.
-\]
+}\]
 
 Commençons par montrer par récurrence que :
 
-\[
+\[\boxed{
 d^k u_i = \frac{\Delta^{i-k} u_k}{(i-k)!T_e^{i-k}}
-\]
+}\]
 
 \begin{itemize}
 \item Initialisation : Pour $i=k$, on a :
@@ -10076,9 +10082,9 @@ On peut finalement réecrire le polynôme de Lagrange en terme de différences fini
 L(x) = \sum_{i=0}^n d^0 u_i \left( \prod_{j=0}^{i-1}(x-jT_e) \right)
 \]
 
-\[
+\[\boxed{
 L(x) = \sum_{i=0}^n \Delta^{i} u_0 \left( \prod_{j=0}^{i-1} \frac{x-jT_e}{i!T_e^{i}} \right)
-\]
+}\]
 
 Par un tour de passe-passe polynomial (cf. polynôme symétrique et binôme de Newton) :
 
@@ -10090,15 +10096,15 @@ La plus simple des méthodes de dérivation numérique consiste à approcher localem
 
 Dans l'hypothèse d'une discrétisation homogène et en se limitant à l'ordre 1 - chose qu'on fait la plupart du temps - la dérivation devient excessivement simple puisque le polynôme prend la forme :
 
-\[
+\[\boxed{
 L(x) = \Delta^0 u_i + \Delta^1 u_i \frac{x}{T_e}
-\]
+}\]
 
 Le polynôme de Lagrange n'approxime alors la fonction qu'au proche voisinage de $t_0$. La dérivée est donnée directement par :
 
-\[
+\[\boxed{
 u'_i = \frac{\Delta^1 u_i}{T_e} = \frac{u_{i+1} - u_i}{T_e}
-\]
+}\]
 
 Résultat que nous aurions pû intuiter sans avoir à évoquer une seule fois la notion d'interpolation. Cependant, celle-ci va nous permettre d'aller plus loin en développant à l'ordre 2 :
 
@@ -10106,9 +10112,9 @@ Résultat que nous aurions pû intuiter sans avoir à évoquer une seule fois la not
 L(x) = \Delta^0 u_i + \Delta^1 u_i \frac{x}{T_e} + \Delta^2 u_i \frac{x}{2 T_e}\left(\frac{x}{T_e}-1\right)
 \]
 
-\[
+\[\boxed{
 L(x) = \Delta^0 u_i + \left(\frac{\Delta^1 u_i}{T_e}-\frac{\Delta^2 u_i}{2 T_e}\right)x + \frac{\Delta^2 u_i}{2 T_e^2}x²
-\]
+}\]
 
 Si la fonction avant discrétisation est suffisament régulière sur $[i T_e;(i+2)T_e]$, sa dérivée première sera donc souvent mieux approximée par :
 
@@ -10124,15 +10130,15 @@ u'_i = \frac{u_{i+1} - u_i}{T_e} - \frac{\Delta^1 u_{i+1} - \Delta^1 u_{i}}{2T_e
 u'_i = \frac{u_{i+1} - u_i}{T_e} - \frac{u_{i+2}-2u_{i+1}+u_i}{2T_e}
 \]
 
-\[
+\[\boxed{
 u'_i = \frac{-u_{i+2}+4u_{i+1}-u_i}{2T_e}
-\]
+}\]
 
 Et la dérivée seconde par :
 
-\[
+\[\boxed{
 u''_i = \frac{\Delta^2 u_i}{T_e^2} = \frac{u_{i+2}-2u_{i+1}+u_i}{T_e^2}
-\]
+}\]
 
 Résultats n'ayant plus grand chose d'intuitif.
 
@@ -10144,7 +10150,7 @@ C'est dans le cas général que les choses se compliquent (quand on souhaite inter
 
 L'intégration numérique fonctionne sur une vision exactement analogue à la dérivation. En supposant le maillage défini et la fonction discrétisée à intégrer connue, on intègre en fait un polynôme de Lagrange par morceau qu'on construit localement (en tous cas c'est la façon de faire qu'on présentera dans ce cours).
 
-On peut se demander pourquoi ne pas utiliser l'expression du polynôme de Lagrange global plutôt que de se limiter à une succession d'approximations globales. La réponse est que les polynômes de degré trop élevés peuvent faire apparaître des fortes variations là où il n'y en avait pas avant discrétisation :
+On peut se demander pourquoi ne pas utiliser l'expression du polynôme de Lagrange global plutôt que de se limiter à une succession d'approximations locales. La réponse est que les polynômes de degré trop élevés peuvent faire apparaître des fortes variations là où il n'y en avait pas avant discrétisation :
 
 \textcolor{red}{(figure)}
 
@@ -10224,7 +10230,7 @@ Toute équation différentielle linéaire peut s'écrire comme une équation du premi
 \frac{dS}{dt}-AS=0
 \]
 
-Avec $S_\nu = \frac{\partial^\nu s}{\partial x^\nu}$ dans le cas sans second membre ; sinon le second membre vient le compléter.
+Avec $S_\nu = \frac{\partial^\nu s}{\partial x^\nu}$ dans le cas sans second membre ; sinon le second membre vient le compléter \textcolor{red}{(?)}.
 
 Par exemple, le filtre passe-bas en posant $u$ constant :
 
@@ -10236,7 +10242,7 @@ Par exemple, le filtre passe-bas en posant $u$ constant :
 \end{matrix}\right)\left(\begin{matrix}s \\u\end{matrix}\right)=0
 \]
 
-C'est alors qu'on hésitera pas à écrire :
+C'est alors qu'on n'hésitera pas à écrire :
 
 \[
 \left(\begin{matrix}s \\u\end{matrix}\right) = e^{At} \left(\begin{matrix}s_0 \\u_0 \end{matrix}\right)
@@ -10257,7 +10263,7 @@ e^{At} = \exp\left(\begin{matrix}
 \end{matrix}\right)
 \]
 
-Qu'on délèguera à un logiciel de calcul scientifique. Sagemath gérant le calcul formel, il nous donne même l'expression analytique :
+Qu'on délèguera à un logiciel de calcul scientifique. Sagemath gérant le calcul formel, il nous en donne même l'expression analytique :
 
 \[
 e^{At} = \left(\begin{matrix}
@@ -10488,11 +10494,14 @@ Psi = var('Psi');
 M = (alpha-(pi/2-Psi))*Matrix([[-R_i/L_i,U_0/L_i,0,-1/L_i],[0,0,1,0],[0,-1,0,0],[0,0,0,0]]);
 output = latex(M.exp().apply_map(attrcall('full_simplify')));
 \end{sagesilent}
+
+\scriptsize
 \[
 \if\releaseversion1
 \sagestr{output}
 \fi
 \]
+\normalsize
 
 Nous emploierons donc la résolution numérique, affectant une valeur à chacune des constantes, et parcourant les $\alpha$ en vue de tracer $I_i(\alpha)$.
 
@@ -10560,6 +10569,8 @@ $I_0$ étant déterminé par la condition aux limites, il ne reste plus qu'à calcul
 
 \textcolor{red}{(tracer $I_i(\alpha)$)}
 
+\subsection{Méthode des volumes finis}
+
 \subsection{Méthode des éléments finis}
 
 \chapter{Traitement du signal}
@@ -10570,11 +10581,11 @@ Un signal est une fonction mathématique véhiculée par l'état temporel d'une gran
 
 L'idée est que ledit signal n'a pas d'intéret en tant que tel pour l'énergie qu'il transporte (prise la plus faible possible), mais pour l'information qu'il fait transiter.
 
-Parce-que dans toutes les branches de la physique l'énergie est une fonction quadratique de la grandeur, un signal $f$ est nécessairement \emph{à énergie finie} :
+Parce-que dans toutes les branches de la physique l'énergie est une fonction quadratique de la grandeur et parcequ'un signal $f$ est nécessairement \emph{à énergie finie} :
 
-\[
+\[\boxed{
 ||f||^2 = \braket{f|f} = \int_\mathbb{R} |f(t)|^2 dt < \infty
-\]
+}\]
 
 L'objet du traitement du signal est l'étude des procédés analogiques et numériques pouvant mener à l'alteration souhaitée ou non d'un signal.
 
@@ -10617,9 +10628,9 @@ Formellement, cela revient à multiplier $f$ par un peigne de Dirac $\mathrm{III}
 
 Avec une écriture plus concise:
 
-\[
+\[\boxed{
 \mathcal{F}(\mathrm{III}_{T_e}f, \omega) = \frac{1}{T_e} \sum_{i\in \mathrm{Z}} \mathcal{F}(f, \omega-\frac{2\pi}{T_e} i)
-\]
+}\]
 
 Qui traduit donc le fait que l'échantillonage additionne des versions translatées de $\frac{2\pi}{T_e}$ du spectre de $f$.
 
@@ -10631,9 +10642,9 @@ Supposons maintenant que le spectre de $f$ ne soit pas à support compact, ou bie
 
 Dans laquelle les motifs répliqués empiètent les uns sur les autres - et nous ferions donc une mauvaise mesure de $f$. On dirait alors que le \emph{critère de Shannon-Nyquist} :
 
-\[
+\[\boxed{
 k_e > 2k_{max}
-\]
+}\]
 
 N'est pas respecté. Pour garantir la satisfaction de ce critère - et donc la validité de l'échantillonage - dans le cas de signaux à large spectre, il conviendra de mettre en place un \emph{filtre anti-repliement} analogique en amont du convertisseur, destiné à sélectionner seulement les fréquences inférieures à $\frac{1}{2 T_e}$.
 
@@ -10649,9 +10660,9 @@ f\mathrm{III}_{T_e}(t) = \sum_{i \in \mathbb{Z}} f(x)\delta(t-\frac{2\pi}{T_e} i
 
 Toute l'information en $t$ non multiple de $\frac{2\pi}{T_e}$ est perdue, ce qui nous amène à introduire la suite :
 
-\[
+\[\boxed{
 u : i \rightarrow f(\frac{2\pi}{T_e}i)
-\]
+}\]
 
 Qui est équivalente à $f\mathrm{III}_{T_e}$.
 
@@ -10667,19 +10678,19 @@ Au coeur du traitement du signal réside la notion de fonction de transfert, qui 
 
 Si cet opérateur est causal, invariant par translation et linéaire, alors il peut nécessairement être représenté par une convolution ; auquel cas la connaissance de la réponse impulsionnelle suffit à caractériser entièrement l'opérateur.
 
-Dans le domaine continu on défini la convolution par :
+Dans le domaine continu on défini la convolution \textcolor{red}{(pas parlé avant)} par :
 
-\[
+\[\boxed{
 f * g : x \rightarrow \int_\mathbb{R} f(x-t)g(t) dt
-\]
+}\]
 
 Ne pouvant être aussi précis, on prendra des \emph{pas de temps} suffisament petits pour que cette expression puisse être approchée par sa version discrète :
 
-\[
+\[\boxed{
 u * v : i \rightarrow \sum_{j \in \mathrm{Z}} u_{i-j}v_j
-\]
+}\]
 
-\textcolor{red}{(distinction filtre RIF RIM)}
+\textcolor{red}{(distinction filtre RIF IIF)}
 
 \subsection{Transformée de Fourier discrète}
 
@@ -10697,11 +10708,11 @@ Son pendant discret sera naturellement donné par :
 
 Dont on ne sélectionnera que les valeurs multiples de $\frac{2\pi}{T_e}$ :
 
-\[
+\[\boxed{
 \mathcal{F}(u) : \alpha \rightarrow \sum_{i \in \mathrm{Z}} u_i e^{-j2\pi \alpha i}
-\]
+}\]
 
-Cependant, la sommation sur $k \in \mathrm{Z}$ étant impossible en pratique (et présuppose une connaissance parfaite du signal en tout temps, alors que la mesure a bien dû démarrer à un certain moment), on se limitera au calcul de la transformée de Fourier de $f$ convoluée avec une \emph{fenêtre} à support compact.
+Cependant, la sommation sur $k \in \mathrm{Z}$ étant impossible en pratique (et présuppose une connaissance parfaite du signal en tout temps, alors que la mesure a bien dû démarrer à un certain moment), on se limitera au calcul de la transformée de Fourier de $f$ convoluée avec celle d'une \emph{fenêtre} à support compact.
 
 Le signal est alors altéré. Si son spectre est nul en deça d'un nombre d'onde $k_{min}$, on choisira dans la mesure du possible une fenêtre de taille :
 
@@ -10732,7 +10743,7 @@ En outre, les algorithmes de transformée de Fourier comme FFT \textcolor{red}{(p
 \begin{itemize}
 \item Premièrement, on impose une taille de fenêtre $D = \frac{2\pi}{k_{min}}$ et on utilise le critère de Shannon pour trouver une borne minimum à $k_e$. On met en place un filtre anti-repliement analogique pour éviter tout risque de repliement. 
 \item Ensuite, on en déduit le nombre de points minimum à traiter $n_{min} = \frac{k_e D}{2\pi}$ et on prend pour $n$ la puissance de $2$ supérieure.
-\item Enfin, on recalcule $k_e = \frac{2\pi n}{D}$, qui respectera nécessairement le critère de Shannon (avec un peu de zèle) ou l'on augmentera la largeur de la fenêtre selon la situation.
+\item Enfin, on recalcule $k_e = \frac{2\pi n}{D}$, qui respectera nécessairement le critère de Shannon (avec un peu de zèle) ou l'on augmentera la taille de la fenêtre selon la situation.
 \end{itemize}
 
 On notera que les algorithmes FFT conservent le nombre de points, ce qui permet de définir une résolution spectrale $r=\frac{k_e}{2\pi n}=\frac{1}{D}$.
@@ -10772,9 +10783,9 @@ Notre but va maintenant être d'écarter le problême de l'exponentielle en la liné
 
 Et nous poserions $z = \frac{1+p\frac{T_e}{2}}{1-p\frac{T_e}{2}}$, définissant la \emph{transformée en Z} comme l'approximation discrète de la transformée de Laplace :
 
-\[
+\[\boxed{
 \mathcal{Z}(u) : z \rightarrow \sum_{i \in \mathrm{Z}} u_i z^{-i}
-\]
+}\]
 
 Et on aurait donc $p = \frac{2}{T} \frac{1 - z^{-1} }{1 + z^{-1} }$
 
@@ -10796,7 +10807,7 @@ Je vous renvois à la partie sur les filtres électriques, où nous avions trouvé q
 \frac{ds}{dt} + \frac{s}{\tau} = \frac{u}{\tau}
 \]
 
-Appliquer la transformée de Laplace sur cette équation nous permet connaître la \emph{fonction de transfert} de ce filtre :
+Appliquer la transformée de Laplace sur cette équation nous permet de connaître la \emph{fonction de transfert} de ce filtre :
 
 \[
 \braket{\frac{ds}{dt}|e^{-p^* t}} + \frac{1}{\tau}\braket{s|e^{-p^* t}} = \frac{1}{\tau}\braket{u|e^{-p^* t}}
@@ -11190,29 +11201,30 @@ Cette section vient compléter celle dédiée aux équations différentielles non-lin
 
 Stabilité :
 
-\[
+\[\boxed{
 \forall \varepsilon > 0, \exists \delta > 0 : |X(0)|<\delta \Rightarrow \forall t>0, |X(t)|<\varepsilon
-\]
+}\]
 
 Stabilité asymptotique :
 
-\[
+\[\boxed{
 \exists \delta' : |X(0)|\leq \delta \Rightarrow \lim_{t\rightarrow \infty}|X(t)|=0
-\]
+}\]
 
 
 Théorème de Lyapunov :
 
 Soit $\mathbb{D} \in \mathbb{R}^n : 0 \in \mathbb{D}$. Soit $V\in C^1(\mathbb{R}^n,\mathbb{R})$. Si :
 
-\[
+\[\boxed{
 \left\{\begin{matrix}
 \forall x \in \mathbb{D} \setminus\{0\} \\
-V(0)=0
+V(0)=0 \\
+\forall X\in \mathbb{D}, (\nabla V f)(X) \leq 0
 \end{matrix}\right.
-\]
+}\]
 
-Et $\forall X\in \mathbb{D}, (\nabla V f)(X) \leq 0$, alors $X=0$ est stable pour le système et $V$ est une fonction de Lyapunov faible.
+Alors $X=0$ est stable pour le système et $V$ est une fonction de Lyapunov faible.
 
 Si de plus $\forall x\in \mathbb{D}, (\nabla V f)(X) < 0$, $X=0$ est localement asymptotiquement stable.
 
@@ -11354,21 +11366,21 @@ Un \emph{graphe} est une structure mathématique comportant simplement un ensembl
 
 Il est dit \emph{non-orienté} si :
 
-\[
+\[\boxed{
 \forall (x,y)\in X^2, \; y\in\Gamma(x) \Leftrightarrow x\in\Gamma(y)
-\]
+}\]
 
 Et \emph{complet} si : 
 
-\[
+\[\boxed{
 \forall (x,y)\in X^2, \; y\in\Gamma(x) \vee x\in\Gamma(y)
-\]
+}\]
 
 L'ensemble constitué des paires :
 
-\[
+\[\boxed{
 (x,y)\in X^2 : y\in\Gamma(x)
-\]
+}\]
 
 Sont les \emph{arêtes} du graphe.
 
@@ -11376,20 +11388,20 @@ Sont les \emph{arêtes} du graphe.
 
 On défini la \emph{matrice d'adjacence} par :
 
-\[
+\[\boxed{
 \forall(x_i, x_j)\in X^2, \; \left\{\begin{matrix}
 M_{ij} = 1 \Leftrightarrow \; x_j\in \Gamma(x_i)\\
 M_{ij} = 0 \Leftrightarrow \; x_j\notin \Gamma(x_i)
 \end{matrix}\right.
-\]
+}\]
 
 Qui est la façon habituelle de coder un graph au travers des arêtes qu'il comprend.
 
 Ces matrices ne correspondent pas tout à fait à la structure d'algèbre matricielle habituelle, car l'addition naturelle y est remplacée par la multiplication terme-à-terme (qui se ramène à un ET logique, ou encore à l'intersection des graphes). C'est à dire que :
 
-\[
+\[\boxed{
 (M\cap N)_i^j = (M)_i^j \times (N)_i^j
-\]
+}\]
 
 \textcolor{red}{(théorie spectrale)}
 
@@ -11421,9 +11433,9 @@ Et notamment :
 
 Qui donne l'existence des chemins de longueur $2$ entre les sommets d'incide $i$ et $j$, et ainsi de suite pour toute puissance de $M$. Il suffit d'intersecter toutes les puissances de $M$ pour obtenir la matrice $C$ d'existence des chemins :
 
-\[
+\[\boxed{
 C = \bigcap_n M^n
-\]
+}\]
 
 On pourra arrêter $n$ au nombre de sommets que le graphe comprend. De plus, on pourra s'arrêter dès lors que deux matrices successives seront identiques.
 
@@ -11431,9 +11443,9 @@ On pourra arrêter $n$ au nombre de sommets que le graphe comprend. De plus, on p
 
 Un graph est dit \emph{connexe} si :
 
-\[
+\[\boxed{
 \forall (x,y), \; \exists \mu : x\in \mu \wedge y\in \mu
-\]
+}\]
 
 C'est-à-dire que le graph est en un seul morceau. Il est dit \emph{fortement connexe} si $\mu$ peut-être toujours choisie de sorte qu'elle soit un chemin.
 
@@ -11451,7 +11463,7 @@ On peut montrer \textcolor{red}{(à faire, par l'absurde je crois)} qu'un graphe 
 
 \section{Réseaux}
 
-La théorie des graphes telle qu'elle vient d'être présentée n'est la partie la plus utile aux ingénieurs, politiques et gestionnaires. C'est la notion de \emph{réseau} - au sens de la théorie des graphes - qui va ouvrir un champ d'application qu'on pourrait qualifier de démentiel de par son ampleur.
+La théorie des graphes telle qu'elle vient d'être présentée n'est pas la partie la plus utile aux ingénieurs, politiques et gestionnaires. C'est la notion de \emph{réseau} - au sens de la théorie des graphes - qui va ouvrir un champ d'application qu'on pourrait qualifier de démentiel de par son ampleur.
 
 On attribue à chaque arête un \emph{poids} $l$ (ou une longueur suivant le vocabulaire qu'on préfère). Cette variable peut-être n'importe quelle grandeur physique de flux caractéristique d'une connexion entre deux points : une débit de fluide ou d'information maximal admissible, une puissance active ou réactive, etc.
 
@@ -11473,9 +11485,7 @@ Autrement dit, la réalisation parfaite n'est qu'une succession de choix individu
 
 Ce principe est presque une doctrine de la vie, qui nous dit que pour faire les bons choix la première chose est d'éviter les situations qui ne vous permettent pas d'atteindre vos plus grandes ambitions. Quand vous voulez quelque chose de tout votre coeur, n'envisagez pas toutes les possibilités ou même seulement celles qui vous semblent les plus profitables à court terme mais commencez par réfléchir à quelles sont les voies qui ne mennent pas à votre but ultime ; et n'y mettez pas les pieds.
 
-Je crois que le principe de Bellman est une leçon de patience.
-
-En informatique, il va permettre de réduire considérablement le temps de calcul de certains problêmes par rapport à une exploration exhaustive de toutes les possibilités, en exculant à chaque itération celles qui ne mènent manifestement pas à l'objectif.
+En informatique, il va permettre de réduire considérablement le temps de calcul de certains problêmes par rapport à une exploration exhaustive de toutes les possibilités, en excluant à chaque itération celles qui ne mènent manifestement pas à l'objectif.
 
 \subsection{Recherche du plus court chemin}
 
@@ -11547,7 +11557,7 @@ A partir d'un arbre $A$, on construit un autre arbre incluant les sommets atteig
 
 \subsection{Recherche du flot maximal}
 
-Soit un réseau, on cherche un autre réseau sur lequel s'appliquerait la loi de Kirchoff, c'est-à-dire qu'un sommet est en fait un \emph{noeud} et que la somme orienté des longueurs de ses arêtes est nulle (loi de Kirchoff). En outre, on impose qu'aucune arête de ce nouveau réseau ne soit affectée d'une longueure supérieure à celle de l'ancien.
+Soit un réseau, on cherche un autre réseau sur lequel s'appliquerait la loi de Kirchoff, c'est-à-dire qu'un sommet est en fait un \emph{noeud} et que la somme orienté des longueurs de ses arêtes est nulle (loi de Kirchoff). En outre, on impose qu'aucune arête de ce nouveau réseau ne soit affectée d'une longueur supérieure à celle de l'ancien.
 
 Bien sûr, ce ne sont plus des longueurs qui interviennent dans ce nouveau réseau mais plutôt des débits ou puissances, et l'ensemble des valeurs attribuées à ses arêtes est un \emph{flot}. L'ancien réseau contient en fait l'information sur les grandeures maximales admissibles par les canalisations et câbles.
 
@@ -11855,13 +11865,13 @@ La solution n'est alors plus unique, et parmi l'ensemble des solutions admissibl
 
 Un problême de programmation linéaire s'écrit sous forme standard :
 
-\[
+\[\boxed{
 \left\{\begin{matrix}
 \max \; C_i X^i \\
 AX=B \\
 X\geq 0
 \end{matrix}\right.
-\]
+}\]
 
 En posant $J=C_i X^i$. La notation $X\geq 0$ est standard en programmation linéaire et désigne l'inégalité terme à terme $\forall i, \; X^i>0$.
 
@@ -11871,12 +11881,14 @@ On peut se demander dans quel cas pratique est-ce qu'on peut se retrouver dans u
 A_{ij}X^j\geq B_i \Rightarrow \exists A'_i, \; X'_i :\; A'_{ij}X'^j = B_i
 \]
 
+\textcolor{red}{(notations ?)}
+
 La matrice $A'$ se construit en ajoutant à $X$ des variables $\varepsilon_i>0$ choisies de sorte qu'on ai toujours : 
 \[
 A'_{ij}X'^j = A_{ij}X^j + \varepsilon_i = B_i
 \]
 
-Le nombre de contraintes (les lignes) étant inchangée, les colonnes supplémentaires rendent la nouvelle matrice $A'$ rectangulaire.
+Le nombre de contraintes (les lignes) étant inchangé, les colonnes supplémentaires rendent la nouvelle matrice $A'$ rectangulaire.
 
 Formellement, on cherchera à ramener un problême linéaire sous forme \emph{canonique} :
 
@@ -12177,9 +12189,9 @@ x \\ y
 
 Et la condition d'annulation du gradient à l'optimum :
 
-\[
+\[\boxed{
 \nabla \mathcal{L}(x^*,y^*) = 0
-\]
+}\]
 
 \[
 \left(\begin{matrix}
@@ -12207,11 +12219,11 @@ La fonction à évaluer pour aboutir à un gradient, définie de façon à ce que $\ma
 \end{matrix}\right)
 \]
 
-On observe maintenant qu'au minimum, les deux gradients ne peuvent qu'êtres collinéaires \textcolor{red}{(pourquoi ?)}. On a alors \textcolor{red}{(trouver le nom de ce principe)} :
+On observe maintenant qu'au minimum, les deux gradients ne peuvent qu'êtres colinéaires. On a alors \textcolor{red}{(passer par le théorème du multiplicateur de Lagrange)} :
 
-\[
+\[\boxed{
 \exists \lambda : \nabla \mathcal{L}(x^*,y^*) = \lambda \nabla c(x^*,y^*)
-\]
+}\]
 
 Ici :
 
@@ -12247,15 +12259,15 @@ x^* \\ y^*
 
 Excellent. On peut finalement définir un nouvel outil propice à l'optimisation sous contrainte :
 
-\[
+\[\boxed{
 \mathcal{H} : (x,y,\lambda) = \lambda c(x,y) - \mathcal{L}(x,y,\lambda)
-\]
+}\]
 
 Pour lequel le \emph{principe du maximum} s'écrira :
 
-\[
+\[\boxed{
 \nabla \mathcal{H}(x^*,y^*) = 0
-\]
+}\]
 
 \subsection{Calcul des variations}
 
@@ -12265,9 +12277,9 @@ On s'intéresse au \emph{problême du Brachistochrone} :
 
 Celui-ci va nous permettre de développer une théorie de l'optimisation des fonctionnelles, c'est-à-dire répondre à des problêmes de la forme :
 
-\[
+\[\boxed{
 \min \int \mathcal{L}(h(x),\dot{h}(x)) \; dx
-\]
+}\]
 
 Où ce qui doit-être déterminé n'est pas la variable $x$, mais bien (à cause de l'intégrale) la fonction $h$. Le calcul des variation permet ainsi de trouver des fonctions optimisantes, et est un outil absolument redoutable pour le physicien d'un niveau avancé.
 
@@ -12275,9 +12287,9 @@ Nous nous limitons à un \emph{Lagrangien} $\mathcal{L}$ qui ne dépend pas explic
 
 Vous allez pouvoir aperçevoir la connexion très profonde qu'il y a entre l'optimisation et la mécanique. Un théorème important est l'\emph{équation d'Euler-Lagrange} \textcolor{red}{(à démontrer)} qui s'écrit :
 
-\[
+\[\boxed{
 \frac{\partial \mathcal{L}}{\partial h}(h^*,\dot{h}) - \frac{d}{dx}\frac{\partial \mathcal{L}}{\partial \dot{h}}(h^*,\dot{h})=0
-\]
+}\]
 
 En toute rigueur, $\mathcal{L}$ et $\dot{h}$ devraient également s'écrire étoilées, mais je souligne ici que c'est bien $h^*$ qu'on recherche dans ce problême et qui impose le reste.
 
@@ -12307,41 +12319,17 @@ Et pour quoi faire ? Pour s'empresser d'en calculer le gradient bien évidemment 
 
 \textcolor{red}{(compléter)}
 
-De sorte qu'on puisse définir un \emph{Hamiltonien} \textcolor{red}{(pas parlé avant)} :
+De sorte qu'on puisse définir un \emph{Hamiltonien} :
 
-\[
+\[\boxed{
 \mathcal{H} : (x,h,\dot{h}) = \lambda(x) c(x,h,\dot{h}) - \mathcal{L}(x,h,\dot{h})
-\]
+}\]
 
 Qui vérifie le principe du maximum :
 
 \[
-\frac{\partial \mathcal{H}}{\partial h}(h^*,\dot{h}) = 0
-\]
-
-On se souvient alors du théorème fondamental du calcul des variations, celui d'Euler-Lagrange, qui s'applique à toute fonctionnelle dont l'intégrale est optimale :
-
-\[
 \frac{\partial \mathcal{H}}{\partial h}(h^*,\dot{h}) - \frac{d}{dx}\frac{\partial \mathcal{H}}{\partial \dot{h}}(h^*,\dot{h})=0
 \]
-
-On ne peut qu'en conclure que :
-
-\[
-\frac{d}{dx}\frac{\partial \mathcal{H}}{\partial \dot{h}}(h^*,\dot{h})=0
-\]
-
-Et en échangeant brutalement les dérivées :
-
-\[
-\frac{\partial}{\partial h}\frac{d \mathcal{H}}{dx}(h^*(x),\dot{h}(x))=0
-\]
-
-\[
-\frac{\partial}{\partial h}\frac{d \mathcal{H}}{dx}(h^*(x),\dot{h}(x))=0
-\]
-
-\textcolor{red}{(ah bon)}
 
 \subsection{Filtrage optimal}
 
